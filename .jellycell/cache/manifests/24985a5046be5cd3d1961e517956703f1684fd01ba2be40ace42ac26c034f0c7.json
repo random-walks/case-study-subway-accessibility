@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "cache_key": "24985a5046be5cd3d1961e517956703f1684fd01ba2be40ace42ac26c034f0c7",
+  "notebook": "notebooks/02_reliability_and_gap_scores.py",
+  "cell_id": "02_reliability_and_gap_scores:12",
+  "cell_name": "fig10_gap_vs_distance",
+  "source_hash": "6cf105e53ddfb454e9e75ffec570eaf0b614932cc440897fb22464700600a4b8",
+  "dep_keys": [],
+  "env_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "executed_at": "2026-04-19T07:43:03.170916Z",
+  "duration_ms": 6,
+  "status": "ok",
+  "outputs": [
+    {
+      "type": "execute_result",
+      "mime": "image/png",
+      "blob": "162a10310c9eaf836af11b494a311a5f78c28868bccf57ed353bfdd8503c35fd",
+      "execution_count": 0
+    },
+    {
+      "type": "execute_result",
+      "mime": "text/plain",
+      "blob": "4a50edebe8b763e269fb794c161e431bbec32c91640b567c1cb45d856e189375",
+      "execution_count": 0
+    }
+  ],
+  "artifacts": []
+}

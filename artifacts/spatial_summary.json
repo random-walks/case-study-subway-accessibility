@@ -1,0 +1,9 @@
+{
+  "weights_threshold_m": 2000,
+  "units_total": 2317,
+  "units_with_neighbors": 2315,
+  "mean_neighbors": 47.9,
+  "median_neighbors": 51,
+  "max_neighbors": 86,
+  "interpretation": "Strong positive autocorrelation across all three variables. Gap score I=0.23 (z=40.87) \u2014 high-gap tracts cluster near other high-gap tracts. Geographic targeting of investment (vs. spatially uniform upgrades) implied as higher-yield policy."
+}

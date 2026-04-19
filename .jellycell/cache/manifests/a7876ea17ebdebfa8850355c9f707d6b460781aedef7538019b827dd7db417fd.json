@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "cache_key": "a7876ea17ebdebfa8850355c9f707d6b460781aedef7538019b827dd7db417fd",
+  "notebook": "notebooks/01_context_and_coverage.py",
+  "cell_id": "01_context_and_coverage:4",
+  "cell_name": "borough_table",
+  "source_hash": "2e34bf1e6e86ce881a7b5f8c26fd3ccab8525d582ab7309093de567f6f9e5db5",
+  "dep_keys": [
+    "5a52a14433ab80a0dccc88daa278fc71776128ec9611592c19415a21fc898b70"
+  ],
+  "env_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "executed_at": "2026-04-19T07:43:01.621916Z",
+  "duration_ms": 168,
+  "status": "ok",
+  "outputs": [
+    {
+      "type": "stream",
+      "name": "stdout",
+      "blob": "cd32d5b95c3ac4a6bac98b362bd72bd6a408a4436edae7b25ab837d968c92dbc"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "artifacts/borough_comparison.parquet",
+      "sha256": "729baeea04a60627b1c9fbc5822590e37772d6d078079c5864265ed9da56ed54",
+      "size": 5905,
+      "mime": null,
+      "caption": "Borough comparison: stations, ADA coverage, gap population",
+      "notes": null,
+      "tags": []
+    }
+  ]
+}

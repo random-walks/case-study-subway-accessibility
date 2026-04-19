@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "cache_key": "e05121e33e5717dd4a5f287a74b49b2b412d441f26e6771699e3c88fdf707cdc",
+  "notebook": "notebooks/03_temporal_and_equity.py",
+  "cell_id": "03_temporal_and_equity:1",
+  "cell_name": "panel_summary",
+  "source_hash": "f21f724bf23b8e34d117b0309cd9dbcd68a7b87169eab1a18b93834128a6fe0a",
+  "dep_keys": [],
+  "env_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "executed_at": "2026-04-19T07:41:27.992184Z",
+  "duration_ms": 123,
+  "status": "ok",
+  "outputs": [
+    {
+      "type": "stream",
+      "name": "stdout",
+      "blob": "66326cb1c31a855d20dc61f5b72db2ded65a4225e87c4939320877b74d991d93"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "artifacts/panel_summary.json",
+      "sha256": "dd7a83270d0c9be75f0b61db463aa08b351fca847812e751ec72c7e30034b8bd",
+      "size": 341,
+      "mime": null,
+      "caption": "Temporal panel construction summary",
+      "notes": null,
+      "tags": []
+    }
+  ]
+}

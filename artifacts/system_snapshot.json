@@ -1,0 +1,14 @@
+{
+  "snapshot_date": "2026-04-09",
+  "system_total_stations": 493,
+  "ada_accessible_stations": 157,
+  "ada_pct": 31.8,
+  "tract_count": 2317,
+  "uncovered_tract_count": 1416,
+  "uncovered_tract_pct": 61.1,
+  "uncovered_population": 4717140,
+  "study_population": 8507596,
+  "uncovered_pop_pct": 55.4,
+  "catchment_meters": 800,
+  "acs_vintage": "2023 5-year"
+}

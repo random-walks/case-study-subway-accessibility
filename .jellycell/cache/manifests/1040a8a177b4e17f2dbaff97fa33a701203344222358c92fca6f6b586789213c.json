@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "cache_key": "1040a8a177b4e17f2dbaff97fa33a701203344222358c92fca6f6b586789213c",
+  "notebook": "notebooks/03_temporal_and_equity.py",
+  "cell_id": "03_temporal_and_equity:4",
+  "cell_name": "balance_table",
+  "source_hash": "f64b07c36a9872efef67ab29538afb76abbcfb446cea60f79213e7e84327a03d",
+  "dep_keys": [
+    "533629e5bd15d24ca07e1272db749b49dc6e73146a1011ef55b4c7c8aada6078"
+  ],
+  "env_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "executed_at": "2026-04-19T07:43:04.631883Z",
+  "duration_ms": 16,
+  "status": "ok",
+  "outputs": [
+    {
+      "type": "stream",
+      "name": "stdout",
+      "blob": "7e66a2b14ba0fb160f13baf5a25cd038f0270a66e2cc74728c2c24deee8ad31f"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "artifacts/treatment_control_balance.parquet",
+      "sha256": "545017206142081a2bd633dc7197e64ed08812ac2c235b68c0653b8b46eb2e26",
+      "size": 5608,
+      "mime": null,
+      "caption": "Welch's t-test: treatment vs. control tracts on demographic predictors",
+      "notes": "All differences statistically significant; effect sizes small/negligible. Direction (treatment > control on disability/poverty) is consistent with vertical-equity targeting.",
+      "tags": []
+    }
+  ]
+}

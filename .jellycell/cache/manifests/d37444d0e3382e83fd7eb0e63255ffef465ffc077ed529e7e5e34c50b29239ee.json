@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "cache_key": "d37444d0e3382e83fd7eb0e63255ffef465ffc077ed529e7e5e34c50b29239ee",
+  "notebook": "notebooks/04_spatial_clustering.py",
+  "cell_id": "04_spatial_clustering:9",
+  "cell_name": "fig15_gap_vs_disability_map",
+  "source_hash": "345bb15861b16c346d4e0b84c3eabee09d344a96325a4c50d8e352ebeaa0191b",
+  "dep_keys": [],
+  "env_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "executed_at": "2026-04-19T07:43:06.244537Z",
+  "duration_ms": 12,
+  "status": "ok",
+  "outputs": [
+    {
+      "type": "execute_result",
+      "mime": "image/png",
+      "blob": "047e2e745fa94946564ccb765bb8437401ce1dc7e4034ceb41a7227ae2d1c4e9",
+      "execution_count": 0
+    },
+    {
+      "type": "execute_result",
+      "mime": "text/plain",
+      "blob": "4a50edebe8b763e269fb794c161e431bbec32c91640b567c1cb45d856e189375",
+      "execution_count": 0
+    }
+  ],
+  "artifacts": []
+}

@@ -1,0 +1,18 @@
+{
+  "n": 2317,
+  "r_squared": 0.202,
+  "adj_r_squared": 0.201,
+  "f_stat": 108.83,
+  "f_df": [
+    3,
+    2313
+  ],
+  "f_p": "<.001",
+  "strongest_predictor": "senior_rate",
+  "strongest_t": 15.93,
+  "vif": {
+    "disability": 2.28,
+    "poverty": 2.24,
+    "senior": 1.17
+  }
+}

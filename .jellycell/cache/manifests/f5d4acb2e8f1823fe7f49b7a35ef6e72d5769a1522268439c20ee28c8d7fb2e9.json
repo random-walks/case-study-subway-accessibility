@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "cache_key": "f5d4acb2e8f1823fe7f49b7a35ef6e72d5769a1522268439c20ee28c8d7fb2e9",
+  "notebook": "notebooks/02_reliability_and_gap_scores.py",
+  "cell_id": "02_reliability_and_gap_scores:3",
+  "cell_name": "reliability_summary",
+  "source_hash": "37a7a42b8848be9526ceebc959ee806c18acd169b73a5555d442f6ea7d100674",
+  "dep_keys": [
+    "8d6b5b0a7940b8f695a75f232c729e20ec72b366581efd6b6348e8411ada9155"
+  ],
+  "env_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "executed_at": "2026-04-19T07:43:03.139824Z",
+  "duration_ms": 6,
+  "status": "ok",
+  "outputs": [
+    {
+      "type": "stream",
+      "name": "stdout",
+      "blob": "7cb579e09346ce4700cf13876edcf3ef2698dc26b8e90a5cc19a8c4bf826db84"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "artifacts/reliability_summary.json",
+      "sha256": "d5ee8f6948170c9d5641728e521a8efc72440c4d78dedac9a7092c1bd8e9e099",
+      "size": 242,
+      "mime": null,
+      "caption": "Reliability-weighted coverage drop, Manhattan",
+      "notes": "Manhattan loses 6 percentage points of effective coverage due to elevator downtime.",
+      "tags": []
+    }
+  ]
+}

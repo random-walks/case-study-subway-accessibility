@@ -1,0 +1,11 @@
+{
+  "panel_dimensions": "2317 tracts \u00d7 7 periods (2017\u20132023)",
+  "total_observations": 16219,
+  "treatment_tracts": 831,
+  "control_tracts": 1486,
+  "stations_with_sourced_dates": 101,
+  "stations_with_approximate_dates": 56,
+  "sourced_pct": 64.3,
+  "coverage_progression_2017_pct": 16.8,
+  "coverage_progression_2023_pct": 35.9
+}

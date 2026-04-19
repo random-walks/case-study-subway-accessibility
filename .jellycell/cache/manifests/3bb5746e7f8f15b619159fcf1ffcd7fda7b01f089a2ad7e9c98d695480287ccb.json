@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "cache_key": "3bb5746e7f8f15b619159fcf1ffcd7fda7b01f089a2ad7e9c98d695480287ccb",
+  "notebook": "notebooks/03_temporal_and_equity.py",
+  "cell_id": "03_temporal_and_equity:16",
+  "cell_name": "fig13_gap_vs_disability",
+  "source_hash": "6c4ae95ccbb57aa2c7541873cf41abcdbadd56a79507cf787b64815bfecd04bb",
+  "dep_keys": [],
+  "env_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "executed_at": "2026-04-19T07:43:04.681385Z",
+  "duration_ms": 5,
+  "status": "ok",
+  "outputs": [
+    {
+      "type": "execute_result",
+      "mime": "image/png",
+      "blob": "1e22067880cc0a828a3bbd7262884244da144dae65e142feebf95977fb232ae7",
+      "execution_count": 0
+    },
+    {
+      "type": "execute_result",
+      "mime": "text/plain",
+      "blob": "4a50edebe8b763e269fb794c161e431bbec32c91640b567c1cb45d856e189375",
+      "execution_count": 0
+    }
+  ],
+  "artifacts": []
+}

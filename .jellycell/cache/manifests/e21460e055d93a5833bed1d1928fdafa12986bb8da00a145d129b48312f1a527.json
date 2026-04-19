@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "cache_key": "e21460e055d93a5833bed1d1928fdafa12986bb8da00a145d129b48312f1a527",
+  "notebook": "notebooks/02_reliability_and_gap_scores.py",
+  "cell_id": "02_reliability_and_gap_scores:1",
+  "cell_name": "fragile_stations",
+  "source_hash": "7228ba35aac12b748845f7bcbe8f9910747c1096f89ab92c341ba88b1fb9a6e1",
+  "dep_keys": [],
+  "env_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "executed_at": "2026-04-19T07:41:53.812294Z",
+  "duration_ms": 298,
+  "status": "ok",
+  "outputs": [
+    {
+      "type": "stream",
+      "name": "stdout",
+      "blob": "5462f96d4f357bcd9512ff07c8cb8b6f3963d0f5d431f4d6885327193b699e09"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "artifacts/most_fragile_stations.parquet",
+      "sha256": "14c9de6162bb617419d8a5ef1f8086f24ff2f55d23004ae9d857706fc165d87e",
+      "size": 2371,
+      "mime": null,
+      "caption": "Most fragile ADA stations — 12-month elevator uptime <60%",
+      "notes": "49 of 157 ADA stations operated below 95% uptime over the window.",
+      "tags": []
+    }
+  ]
+}

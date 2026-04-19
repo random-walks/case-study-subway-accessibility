@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "cache_key": "969a3bed9a99f883bf0e0b7bac8305dbe989fac251d735629cdd66cc736f59d4",
+  "notebook": "notebooks/03_temporal_and_equity.py",
+  "cell_id": "03_temporal_and_equity:10",
+  "cell_name": "ols_regression",
+  "source_hash": "cb7936fd6f12c1eb3ff7d4a6f92674374fd52f35e45afa4f10fa56adb2d3d428",
+  "dep_keys": [
+    "1040a8a177b4e17f2dbaff97fa33a701203344222358c92fca6f6b586789213c"
+  ],
+  "env_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "executed_at": "2026-04-19T07:43:04.658313Z",
+  "duration_ms": 8,
+  "status": "ok",
+  "outputs": [
+    {
+      "type": "stream",
+      "name": "stdout",
+      "blob": "0a67ea50b7abed058b3d4a1fae8b51358fe2625ae98be3453762cccbc3285d58"
+    },
+    {
+      "type": "execute_result",
+      "mime": "text/plain",
+      "blob": "2290810764e34780efcc377b548ba0f32dbacbe6a59848a661400d7b128b74ed",
+      "execution_count": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "artifacts/ols_gap_on_demographics.parquet",
+      "sha256": "949742f9a55863e3b216f3468f10314dff5b7819819164f95441ff26d4ecc9f7",
+      "size": 4196,
+      "mime": null,
+      "caption": "OLS: gap score on demographic predictors (HC1 robust SE)",
+      "notes": "N=2317. R²=.202, Adj R²=.201. F(3,2313)=108.83, p<.001. Senior rate is the strongest predictor; disability is collinear with poverty (r=.70).",
+      "tags": []
+    },
+    {
+      "path": "artifacts/ols_summary.json",
+      "sha256": "64f35789d65db3ba7aa3e1bd354bdd45275c633e3af0eabc85a923087fa180d5",
+      "size": 278,
+      "mime": null,
+      "caption": "OLS regression summary statistics",
+      "notes": null,
+      "tags": []
+    }
+  ]
+}

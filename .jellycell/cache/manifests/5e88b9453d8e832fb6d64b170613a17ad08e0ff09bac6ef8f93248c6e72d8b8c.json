@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "cache_key": "5e88b9453d8e832fb6d64b170613a17ad08e0ff09bac6ef8f93248c6e72d8b8c",
+  "notebook": "notebooks/01_context_and_coverage.py",
+  "cell_id": "01_context_and_coverage:6",
+  "cell_name": "fig1_coverage_by_borough",
+  "source_hash": "bfdad21743ba06ba2da25de964388c5ac4da426b949c716d69d13e07b0a625ce",
+  "dep_keys": [],
+  "env_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "executed_at": "2026-04-19T07:43:01.631480Z",
+  "duration_ms": 7,
+  "status": "ok",
+  "outputs": [
+    {
+      "type": "execute_result",
+      "mime": "image/png",
+      "blob": "ce0d7232c1e72b883c0ac89dd255f420ecafcc885466356b75460490e84116ea",
+      "execution_count": 0
+    },
+    {
+      "type": "execute_result",
+      "mime": "text/plain",
+      "blob": "4a50edebe8b763e269fb794c161e431bbec32c91640b567c1cb45d856e189375",
+      "execution_count": 0
+    }
+  ],
+  "artifacts": []
+}

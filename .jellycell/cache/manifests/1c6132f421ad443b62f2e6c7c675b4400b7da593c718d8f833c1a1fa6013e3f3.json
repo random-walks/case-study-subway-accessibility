@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "cache_key": "1c6132f421ad443b62f2e6c7c675b4400b7da593c718d8f833c1a1fa6013e3f3",
+  "notebook": "notebooks/03_temporal_and_equity.py",
+  "cell_id": "03_temporal_and_equity:14",
+  "cell_name": "fig12_gap_vs_poverty",
+  "source_hash": "a68e53ea8ede7265a46db8e75318bc70876ccdf0f0f092fecbb6a365f458c895",
+  "dep_keys": [],
+  "env_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "executed_at": "2026-04-19T07:43:04.673501Z",
+  "duration_ms": 5,
+  "status": "ok",
+  "outputs": [
+    {
+      "type": "execute_result",
+      "mime": "image/png",
+      "blob": "296ee4741d7f83e0bbf944f85a37438161bfba5bde6dbb983c496607c6d1fd57",
+      "execution_count": 0
+    },
+    {
+      "type": "execute_result",
+      "mime": "text/plain",
+      "blob": "4a50edebe8b763e269fb794c161e431bbec32c91640b567c1cb45d856e189375",
+      "execution_count": 0
+    }
+  ],
+  "artifacts": []
+}

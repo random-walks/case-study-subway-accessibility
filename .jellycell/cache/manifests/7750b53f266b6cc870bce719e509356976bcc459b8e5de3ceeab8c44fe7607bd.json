@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "cache_key": "7750b53f266b6cc870bce719e509356976bcc459b8e5de3ceeab8c44fe7607bd",
+  "notebook": "notebooks/02_reliability_and_gap_scores.py",
+  "cell_id": "02_reliability_and_gap_scores:8",
+  "cell_name": "fig8_need_distribution",
+  "source_hash": "f5b6303d1ffdb74e470c338a8bd198e33f6b50ec473a7843548ab79140fa9efc",
+  "dep_keys": [],
+  "env_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "executed_at": "2026-04-19T07:43:03.154296Z",
+  "duration_ms": 5,
+  "status": "ok",
+  "outputs": [
+    {
+      "type": "execute_result",
+      "mime": "image/png",
+      "blob": "78bd149dd587f63183c5dc863bb5b880961d6c555236d492aacc06af0ad9fd93",
+      "execution_count": 0
+    },
+    {
+      "type": "execute_result",
+      "mime": "text/plain",
+      "blob": "4a50edebe8b763e269fb794c161e431bbec32c91640b567c1cb45d856e189375",
+      "execution_count": 0
+    }
+  ],
+  "artifacts": []
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "cache_key": "5a52a14433ab80a0dccc88daa278fc71776128ec9611592c19415a21fc898b70",
+  "notebook": "notebooks/01_context_and_coverage.py",
+  "cell_id": "01_context_and_coverage:2",
+  "cell_name": "system_snapshot",
+  "source_hash": "a96188e0a874ef19724416f29e8729ee56b5ad003546e982a45b6e5a69f3cbc1",
+  "dep_keys": [],
+  "env_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "executed_at": "2026-04-19T07:43:01.452111Z",
+  "duration_ms": 6,
+  "status": "ok",
+  "outputs": [
+    {
+      "type": "stream",
+      "name": "stdout",
+      "blob": "c9d25d778bd0a00f91846fffd92e31dc9e2e070c2c615a5125880d92c51742a6"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "artifacts/system_snapshot.json",
+      "sha256": "0155d2669124ee9390109888d02ec023ceafebad6e6bf4c30be05006db094f14",
+      "size": 361,
+      "mime": null,
+      "caption": "System-wide ADA coverage snapshot, April 2026",
+      "notes": "55.4% of NYC residents live in tracts >800m from any ADA-accessible station.",
+      "tags": []
+    }
+  ]
+}

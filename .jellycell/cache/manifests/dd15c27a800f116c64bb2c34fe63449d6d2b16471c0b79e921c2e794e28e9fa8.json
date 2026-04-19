@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "cache_key": "dd15c27a800f116c64bb2c34fe63449d6d2b16471c0b79e921c2e794e28e9fa8",
+  "notebook": "notebooks/03_temporal_and_equity.py",
+  "cell_id": "03_temporal_and_equity:12",
+  "cell_name": "fig11_correlation",
+  "source_hash": "6f00bdfac134c6d806548e2090985aaf5ebbe3003a999249bb494411c97f8733",
+  "dep_keys": [],
+  "env_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "executed_at": "2026-04-19T07:43:04.665750Z",
+  "duration_ms": 5,
+  "status": "ok",
+  "outputs": [
+    {
+      "type": "execute_result",
+      "mime": "image/png",
+      "blob": "bc6cc66f4749867e61a04c86de580f10cd69f585c992c0b946551c8863f83564",
+      "execution_count": 0
+    },
+    {
+      "type": "execute_result",
+      "mime": "text/plain",
+      "blob": "4a50edebe8b763e269fb794c161e431bbec32c91640b567c1cb45d856e189375",
+      "execution_count": 0
+    }
+  ],
+  "artifacts": []
+}
