@@ -1,0 +1,5 @@
+site/
+.jellycell/cache/blobs/
+.jellycell/cache/state.db
+.jellycell/cache/assets/
+journal.md

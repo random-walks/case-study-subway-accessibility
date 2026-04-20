@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "cache_key": "010b6f54b8cbed34d9d3a2012c4f10cc2912755ee25e8edaa65132dcbadfeed6",
+  "notebook": "notebooks/02_figures_gallery.py",
+  "cell_id": "02_figures_gallery:12",
+  "cell_name": "fig12_gap_vs_poverty_scatter",
+  "source_hash": "59b717c14dc410bf3a860fbd8b344cf2f6b8fc8b1a6dd83c5a57bc3d362f647c",
+  "dep_keys": [],
+  "env_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "executed_at": "2026-04-20T16:21:31.057130Z",
+  "duration_ms": 6,
+  "status": "ok",
+  "outputs": [
+    {
+      "type": "execute_result",
+      "mime": "image/png",
+      "blob": "296ee4741d7f83e0bbf944f85a37438161bfba5bde6dbb983c496607c6d1fd57",
+      "execution_count": 0
+    },
+    {
+      "type": "execute_result",
+      "mime": "text/plain",
+      "blob": "4a50edebe8b763e269fb794c161e431bbec32c91640b567c1cb45d856e189375",
+      "execution_count": 0
+    }
+  ],
+  "artifacts": []
+}

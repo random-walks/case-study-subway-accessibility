@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "cache_key": "3c7c202bfc08bb5cb337a5dcd3a8f25e4a901763be60c04f6288ed8643e876bd",
+  "notebook": "notebooks/02_figures_gallery.py",
+  "cell_id": "02_figures_gallery:3",
+  "cell_name": "fig3_reliability_nominal_vs_effective",
+  "source_hash": "1f3e0f62ecf39bd087d1c6ba891bd545dc5f10cbffe6e8f80ac0d2ce3d10efac",
+  "dep_keys": [],
+  "env_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "executed_at": "2026-04-20T16:21:30.964843Z",
+  "duration_ms": 5,
+  "status": "ok",
+  "outputs": [
+    {
+      "type": "execute_result",
+      "mime": "image/png",
+      "blob": "ab72a3e6af60d78f375ea11911fd843ead57e12510dc2d1f6c0c58f581e4e841",
+      "execution_count": 0
+    },
+    {
+      "type": "execute_result",
+      "mime": "text/plain",
+      "blob": "4a50edebe8b763e269fb794c161e431bbec32c91640b567c1cb45d856e189375",
+      "execution_count": 0
+    }
+  ],
+  "artifacts": []
+}
