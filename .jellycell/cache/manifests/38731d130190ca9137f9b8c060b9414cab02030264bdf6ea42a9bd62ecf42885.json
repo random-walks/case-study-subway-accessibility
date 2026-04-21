@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "cache_key": "38731d130190ca9137f9b8c060b9414cab02030264bdf6ea42a9bd62ecf42885",
+  "notebook": "notebooks/02_figures_gallery.py",
+  "cell_id": "02_figures_gallery:5",
+  "cell_name": "fig5_choropleth_coverage_status",
+  "source_hash": "26c76febe16107ea882da5db6a15b0dbcef0883280845a414f4961ec7893c48e",
+  "dep_keys": [],
+  "env_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "executed_at": "2026-04-20T16:21:31.003816Z",
+  "duration_ms": 14,
+  "status": "ok",
+  "outputs": [
+    {
+      "type": "execute_result",
+      "mime": "image/png",
+      "blob": "8f063156ff863adf11e707455188714dc91c9a432b4f2fcacd33eba874a1f224",
+      "execution_count": 0
+    },
+    {
+      "type": "execute_result",
+      "mime": "text/plain",
+      "blob": "4a50edebe8b763e269fb794c161e431bbec32c91640b567c1cb45d856e189375",
+      "execution_count": 0
+    }
+  ],
+  "artifacts": []
+}

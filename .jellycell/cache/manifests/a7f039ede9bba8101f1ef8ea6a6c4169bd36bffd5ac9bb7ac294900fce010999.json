@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "cache_key": "a7f039ede9bba8101f1ef8ea6a6c4169bd36bffd5ac9bb7ac294900fce010999",
+  "notebook": "notebooks/02_figures_gallery.py",
+  "cell_id": "02_figures_gallery:9",
+  "cell_name": "fig9_distance_decay",
+  "source_hash": "259e67f073d60e98ac703e51b59df1e7b10dd1923f2bc538ab90e24ba887a966",
+  "dep_keys": [],
+  "env_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "executed_at": "2026-04-20T16:21:31.033314Z",
+  "duration_ms": 6,
+  "status": "ok",
+  "outputs": [
+    {
+      "type": "execute_result",
+      "mime": "image/png",
+      "blob": "6efabe1fc7119c4812814912fc4ccebc733b43d2bfd171fab091f17419c430d5",
+      "execution_count": 0
+    },
+    {
+      "type": "execute_result",
+      "mime": "text/plain",
+      "blob": "4a50edebe8b763e269fb794c161e431bbec32c91640b567c1cb45d856e189375",
+      "execution_count": 0
+    }
+  ],
+  "artifacts": []
+}

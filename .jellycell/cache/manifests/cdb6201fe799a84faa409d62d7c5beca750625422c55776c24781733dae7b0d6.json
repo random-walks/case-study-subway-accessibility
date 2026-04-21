@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "cache_key": "cdb6201fe799a84faa409d62d7c5beca750625422c55776c24781733dae7b0d6",
+  "notebook": "notebooks/02_figures_gallery.py",
+  "cell_id": "02_figures_gallery:10",
+  "cell_name": "fig10_gap_vs_distance_scatter",
+  "source_hash": "97a472822c0b5755a57c87f03f7fce392a0b718224c764a71f45d44e809cdc05",
+  "dep_keys": [],
+  "env_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "executed_at": "2026-04-20T16:21:31.041243Z",
+  "duration_ms": 6,
+  "status": "ok",
+  "outputs": [
+    {
+      "type": "execute_result",
+      "mime": "image/png",
+      "blob": "162a10310c9eaf836af11b494a311a5f78c28868bccf57ed353bfdd8503c35fd",
+      "execution_count": 0
+    },
+    {
+      "type": "execute_result",
+      "mime": "text/plain",
+      "blob": "4a50edebe8b763e269fb794c161e431bbec32c91640b567c1cb45d856e189375",
+      "execution_count": 0
+    }
+  ],
+  "artifacts": []
+}

@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "cache_key": "a4c161993461e630c2b9942d6c5bb0d22c95754c122dc65ec1a1f032d587c685",
+  "notebook": "notebooks/01_context_and_pointer.py",
+  "cell_id": "01_context_and_pointer:1",
+  "cell_name": "headline_numbers",
+  "source_hash": "101e5e325290e99b06daa5b109773d34b03fe85981a169ad5fefa38b25454e6d",
+  "dep_keys": [],
+  "env_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "executed_at": "2026-04-20T16:21:24.126494Z",
+  "duration_ms": 140,
+  "status": "ok",
+  "outputs": [
+    {
+      "type": "execute_result",
+      "mime": "text/plain",
+      "blob": "1ba2de25c253ac329a39d7f18a23272e7042dba624000a5050beaf08c5947c1e",
+      "execution_count": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "artifacts/headline_numbers.json",
+      "sha256": "786fafe07b5b13ac74bff8888faea082d2f6a1470dc759d04d3485937ad9f1e3",
+      "size": 597,
+      "mime": null,
+      "caption": "Headline numbers mirrored from subway-access v0.5.0 CASESTUDY (April 2026 vintage).",
+      "notes": "Numbers are not recomputed here; they index the upstream analysis for portfolio browsing. See manuscripts/UPSTREAM_REFERENCE.md to regenerate against a later MTA/ACS vintage.",
+      "tags": [
+        "tearsheet"
+      ]
+    }
+  ]
+}

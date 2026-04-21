@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "cache_key": "f93998e7030e530bca49ff9023ea1fa449b9e3ecd4944d73ae733528eaf9f118",
+  "notebook": "notebooks/02_figures_gallery.py",
+  "cell_id": "02_figures_gallery:8",
+  "cell_name": "fig8_need_score_distribution",
+  "source_hash": "3ab67f926d912d8030093e103dc7e9c795b116267fa5fd3c51bac21c0b97ed77",
+  "dep_keys": [],
+  "env_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "executed_at": "2026-04-20T16:21:31.025643Z",
+  "duration_ms": 5,
+  "status": "ok",
+  "outputs": [
+    {
+      "type": "execute_result",
+      "mime": "image/png",
+      "blob": "78bd149dd587f63183c5dc863bb5b880961d6c555236d492aacc06af0ad9fd93",
+      "execution_count": 0
+    },
+    {
+      "type": "execute_result",
+      "mime": "text/plain",
+      "blob": "4a50edebe8b763e269fb794c161e431bbec32c91640b567c1cb45d856e189375",
+      "execution_count": 0
+    }
+  ],
+  "artifacts": []
+}

@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "cache_key": "43634cd89c50b94cfcac7210eb003e685526aa09077399f3cb736ada2ae9aee5",
+  "notebook": "notebooks/03_cross_walk.py",
+  "cell_id": "03_cross_walk:1",
+  "cell_name": "cross_walk_rows",
+  "source_hash": "a59eb3e572457b41b827ca8c982d30eede26c8c9e10271351082c2092b0ca9d1",
+  "dep_keys": [],
+  "env_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "executed_at": "2026-04-20T16:21:35.927439Z",
+  "duration_ms": 136,
+  "status": "ok",
+  "outputs": [
+    {
+      "type": "execute_result",
+      "mime": "text/plain",
+      "blob": "1ecb402aae2ba2d9a5158b1f5b7651848ffd214ae0e0c16226240bd1018fc359",
+      "execution_count": 0
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "artifacts/cross_walk.json",
+      "sha256": "18c0251f412e5a489ed0b3275fe386f69e9c38e1d024a058bc7d4169684ca050",
+      "size": 5128,
+      "mime": null,
+      "caption": "Cross-walk: 18 rows mapping subway-access CASESTUDY sections to factor-factory engine families and blaise-website portfolio topics.",
+      "notes": null,
+      "tags": [
+        "tearsheet"
+      ]
+    }
+  ]
+}

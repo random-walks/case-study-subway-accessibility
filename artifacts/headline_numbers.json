@@ -1,0 +1,22 @@
+{
+  "upstream_package": "subway-access",
+  "upstream_version": "0.5.0",
+  "study_vintage": "April 2026",
+  "n_stations_total": 493,
+  "n_stations_ada": 157,
+  "pct_stations_ada": 31.8,
+  "n_tracts_analyzed": 2317,
+  "study_population": 8507596,
+  "gap_population": 4717140,
+  "gap_population_pct": 55.4,
+  "n_figures_mirrored": 15,
+  "ols_r_squared": 0.202,
+  "ols_f_stat": 108.83,
+  "ols_df_model": 3,
+  "ols_df_resid": 2313,
+  "morans_i_gap": 0.2271,
+  "morans_i_gap_z": 40.87,
+  "n_stations_below_95pct_uptime": 49,
+  "manhattan_coverage_nominal": 0.77,
+  "manhattan_coverage_effective": 0.71
+}

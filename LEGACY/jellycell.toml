@@ -16,7 +16,7 @@ timeout_seconds = 600
 
 [viewer]
 host = "127.0.0.1"
-port = 5181
+port = 5179
 watch = [
     "notebooks",
     "manuscripts",

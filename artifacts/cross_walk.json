@@ -1,0 +1,113 @@
+{
+  "n_rows": 18,
+  "rows": [
+    {
+      "upstream_section": "\u00a73.1 Data sources",
+      "topic": "MTA stations + ACS tracts + elevator uptime + tract geometries",
+      "ff_engine": "-",
+      "portfolio_topic": "Data provenance sidecars (see .claude/skills/data-provenance.md)"
+    },
+    {
+      "upstream_section": "\u00a73.2 Accessibility model",
+      "topic": "800 m Euclidean catchment on tract centroids",
+      "ff_engine": "nyc_geo_toolkit.catchment (spatial extra)",
+      "portfolio_topic": "Walking-distance proxies and the network-distance upgrade path"
+    },
+    {
+      "upstream_section": "\u00a73.3 Need and gap scores",
+      "topic": "Equal-weight composite of disability, senior, poverty rates",
+      "ff_engine": "factor_factory.engines.inequality (composite indices)",
+      "portfolio_topic": "Composite need indices and sensitivity to weighting"
+    },
+    {
+      "upstream_section": "\u00a73.4 Reliability-weighted coverage",
+      "topic": "Discount nominal coverage by observed uptime fraction",
+      "ff_engine": "factor_factory.tidy.Panel (reliability-weighted outcomes)",
+      "portfolio_topic": "De jure vs. de facto service delivery"
+    },
+    {
+      "upstream_section": "\u00a73.5 DiD specification",
+      "topic": "Twoway fixed-effects panel with tract + period effects",
+      "ff_engine": "factor_factory.engines.did.twfe",
+      "portfolio_topic": "Staggered rollout treatment effects"
+    },
+    {
+      "upstream_section": "\u00a73.5 DiD \u2014 staggered adoption robustness",
+      "topic": "CS / SA / BJS heterogeneity-robust DiD estimators",
+      "ff_engine": "factor_factory.engines.did.{callaway_santanna,sun_abraham,borusyak_jaravel_spiess}",
+      "portfolio_topic": "Cross-estimator agreement as identification check"
+    },
+    {
+      "upstream_section": "\u00a73.5 SAR panel",
+      "topic": "Spatial autoregressive extension of the DiD panel",
+      "ff_engine": "factor_factory.engines.spatial.spatial_lag",
+      "portfolio_topic": "Spatial spillovers and SUTVA violations"
+    },
+    {
+      "upstream_section": "\u00a73.6 Spatial analysis (weights matrix)",
+      "topic": "Row-standardized 2 km distance-based weights over 2,317 tracts",
+      "ff_engine": "factor_factory.engines.spatial._base (weights)",
+      "portfolio_topic": "Spatial weights construction and sensitivity"
+    },
+    {
+      "upstream_section": "\u00a74.1 System-wide coverage",
+      "topic": "Descriptive coverage counts, gap populations",
+      "ff_engine": "-",
+      "portfolio_topic": "Headline-number communication"
+    },
+    {
+      "upstream_section": "\u00a74.2 Borough disparities",
+      "topic": "Stratified coverage + mean-distance-to-nearest by borough",
+      "ff_engine": "factor_factory.engines.inequality.theil (between-borough decomposition)",
+      "portfolio_topic": "Between-group vs. within-group inequality"
+    },
+    {
+      "upstream_section": "\u00a74.3 Reliability analysis",
+      "topic": "Station uptime ranking; fragile-station surfacing",
+      "ff_engine": "factor_factory.engines.changepoint.ruptures_adapter (uptime regime shifts)",
+      "portfolio_topic": "Operational reliability as outcome"
+    },
+    {
+      "upstream_section": "\u00a74.4 Temporal progression",
+      "topic": "Coverage share across 7 panel periods (2017-2023)",
+      "ff_engine": "factor_factory.engines.stl.sktime_stl",
+      "portfolio_topic": "Rollout curves and pre-trend inspection"
+    },
+    {
+      "upstream_section": "\u00a74.5 Treatment-control balance",
+      "topic": "Welch's t-tests on pre-treatment covariates",
+      "ff_engine": "factor_factory.engines.did._base (balance diagnostics)",
+      "portfolio_topic": "Identifying assumptions \u2014 parallel trends, no anticipation"
+    },
+    {
+      "upstream_section": "\u00a74.6 Model diagnostics",
+      "topic": "Jarque-Bera, skewness, kurtosis, distance-decay plots",
+      "ff_engine": "-",
+      "portfolio_topic": "Aggressive diagnostics (see .claude/skills/diagnostics-aggressive.md)"
+    },
+    {
+      "upstream_section": "\u00a74.7 OLS equity regression",
+      "topic": "Gap score ~ disability + senior + poverty (HC1 SE, VIF)",
+      "ff_engine": "factor_factory.engines.panel_reg.pyfixest_adapter",
+      "portfolio_topic": "Vertical equity quantified"
+    },
+    {
+      "upstream_section": "\u00a74.8 Moran's I",
+      "topic": "Global spatial autocorrelation on gap, need, disability",
+      "ff_engine": "factor_factory.engines.spatial.morans_i",
+      "portfolio_topic": "Spatial autocorrelation as clustering evidence"
+    },
+    {
+      "upstream_section": "\u00a75 Discussion",
+      "topic": "Limitations, policy implications, future research",
+      "ff_engine": "-",
+      "portfolio_topic": "Honest limitations (see .claude/skills/paper-cadence.md \u00a75.3)"
+    },
+    {
+      "upstream_section": "Appendix D \u2014 engine audit",
+      "topic": "factor-factory engine cross-check of primary results",
+      "ff_engine": "factor_factory.engines.{panel_reg,spatial,did}",
+      "portfolio_topic": "Engine-audit-as-appendix pattern (directional agreement as check)"
+    }
+  ]
+}
