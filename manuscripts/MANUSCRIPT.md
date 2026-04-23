@@ -22,8 +22,8 @@ section of the upstream CASESTUDY to the `factor-factory` engine family that
 owns the canonical implementation and to the portfolio topic other
 blaise-website showcases use to reference this one. Third, we record the
 headline numbers — 493 stations, 157 ADA-accessible (31.8%), 4,717,140 New
-Yorkers in gap tracts (55.4%), OLS *R*² = .202 with senior rate as the
-strongest predictor, Moran's *I* = .23 (*z* = 40.87, *p* < .001) — as
+Yorkers in gap tracts (55.4%), OLS $R^2 = .202$ with senior rate as the
+strongest predictor, Moran's $I = .23$ ($z = 40.87$, $p < .001$) — as
 structured JSON so downstream consumers (the portfolio index, the OSS
 catalogue) can surface them without parsing prose.
 
@@ -72,15 +72,15 @@ produces nominal compliance that does not translate to functional access.
 
 The equity regression (gap score ~ disability rate + senior rate +
 poverty rate, OLS with HC1 standard errors) identifies senior rate as the
-strongest predictor (*b* = 0.263, *t*(2313) = 15.93, *p* < .001),
-followed by poverty rate (*b* = 0.164, *t* = 4.99, *p* < .001).
+strongest predictor ($b = 0.263$, $t(2313) = 15.93$, $p < .001$),
+followed by poverty rate ($b = 0.164$, $t = 4.99$, $p < .001$).
 Disability rate is not a significant predictor in the multivariate model
-(*t* = 0.21, *p* = .84) because of its *r* = .70 correlation with
-poverty. Model *R*² = .202, *F*(3, 2313) = 108.83, *p* < .001.
+($t = 0.21$, $p = .84$) because of its $r = .70$ correlation with
+poverty. Model $R^2 = .202$, $F(3, 2313) = 108.83$, $p < .001$.
 
-Global Moran's *I* statistics confirm significant positive spatial
-autocorrelation: gap score *I* = .23 (*z* = 40.87), need score *I* = .20
-(*z* = 33.91), disability rate *I* = .28 (*z* = 48.92), all *p* < .001.
+Global Moran's $I$ statistics confirm significant positive spatial
+autocorrelation: gap score $I = .23$ ($z = 40.87$), need score $I = .20$
+($z = 33.91$), disability rate $I = .28$ ($z = 48.92$), all $p < .001$.
 Accessibility gaps do not distribute randomly; they cluster in
 identifiable corridors — southeastern Queens, central Brooklyn, the
 northern Bronx — amenable to geographically targeted investment.
