@@ -22,8 +22,8 @@ section of the upstream CASESTUDY to the `factor-factory` engine family that
 owns the canonical implementation and to the portfolio topic other
 blaise-website showcases use to reference this one. Third, we record the
 headline numbers — 493 stations, 157 ADA-accessible (31.8%), 4,717,140 New
-Yorkers in gap tracts (55.4%), OLS *R*² = .202 with senior rate as the
-strongest predictor, Moran's *I* = .23 (*z* = 40.87, *p* < .001) — as
+Yorkers in gap tracts (55.4%), OLS $R^2 = .202$ with senior rate as the
+strongest predictor, Moran's $I = .23$ ($z = 40.87$, $p < .001$) — as
 structured JSON so downstream consumers (the portfolio index, the OSS
 catalogue) can surface them without parsing prose.
 
@@ -72,15 +72,15 @@ produces nominal compliance that does not translate to functional access.
 
 The equity regression (gap score ~ disability rate + senior rate +
 poverty rate, OLS with HC1 standard errors) identifies senior rate as the
-strongest predictor (*b* = 0.263, *t*(2313) = 15.93, *p* < .001),
-followed by poverty rate (*b* = 0.164, *t* = 4.99, *p* < .001).
+strongest predictor ($b = 0.263$, $t(2313) = 15.93$, $p < .001$),
+followed by poverty rate ($b = 0.164$, $t = 4.99$, $p < .001$).
 Disability rate is not a significant predictor in the multivariate model
-(*t* = 0.21, *p* = .84) because of its *r* = .70 correlation with
-poverty. Model *R*² = .202, *F*(3, 2313) = 108.83, *p* < .001.
+($t = 0.21$, $p = .84$) because of its $r = .70$ correlation with
+poverty. Model $R^2 = .202$, $F(3, 2313) = 108.83$, $p < .001$.
 
-Global Moran's *I* statistics confirm significant positive spatial
-autocorrelation: gap score *I* = .23 (*z* = 40.87), need score *I* = .20
-(*z* = 33.91), disability rate *I* = .28 (*z* = 48.92), all *p* < .001.
+Global Moran's $I$ statistics confirm significant positive spatial
+autocorrelation: gap score $I = .23$ ($z = 40.87$), need score $I = .20$
+($z = 33.91$), disability rate $I = .28$ ($z = 48.92$), all $p < .001$.
 Accessibility gaps do not distribute randomly; they cluster in
 identifiable corridors — southeastern Queens, central Brooklyn, the
 northern Bronx — amenable to geographically targeted investment.
@@ -94,6 +94,38 @@ They are LFS-tracked via the repo-root `.gitattributes`; the `git mv` from
 the LEGACY showcase preserves history. Each figure carries a one-sentence
 caption linking back to the upstream section so a reader can jump from a
 map to the paragraph that defines what it shows.
+
+### 3.1 Gallery
+
+![Figure 1 — ADA-accessible station count vs. total active station count by borough (April 2026 MTA vintage). Staten Island's 9% coverage vs. Manhattan's 77% coverage is the bracket the rest of the analysis unpacks.](../artifacts/figures/figure-1-coverage-by-borough.png)
+
+![Figure 2 — Resident population inside vs. outside the 800 m accessibility catchment, by borough. 4.72 M New Yorkers (55.4%) live in gap tracts; Queens carries the largest absolute gap (1.75 M residents).](../artifacts/figures/figure-2-gap-population.png)
+
+![Figure 3 — Nominal ADA coverage vs. uptime-weighted "effective" coverage, by borough. Uptime-weighting pulls Manhattan from 77% down to 71% and documents the gap between capital compliance and functional access.](../artifacts/figures/figure-3-reliability-nominal-vs-effective.png)
+
+![Figure 4 — Choropleth of the composite gap score at the census-tract level. Gap score combines catchment distance and uptime-weighted reliability; southeastern Queens, central Brooklyn, and the northern Bronx dominate.](../artifacts/figures/figure-4-choropleth-gap-score.png)
+
+![Figure 5 — Choropleth of binary coverage status (in-catchment vs. gap tract) at the census-tract level. Complements Figure 4 by separating geometry from reliability.](../artifacts/figures/figure-5-choropleth-coverage-status.png)
+
+![Figure 6 — Cumulative ADA-accessible station count over the MTA Key Station Program timeline. The step pattern illustrates the hash-based fallback used for the 56-station subset lacking sourced upgrade years.](../artifacts/figures/figure-6-coverage-progression.png)
+
+![Figure 7 — Balance check on the treated vs. control tract pool used in the DiD supplement, showing the pre-period demographics that justify the upstream identification strategy.](../artifacts/figures/figure-7-treatment-vs-control-balance.png)
+
+![Figure 8 — Distribution of the composite need score (disability rate + senior rate + poverty rate, equal weights) across all 2,317 tracts. Right-tailed: the tracts with the highest need are a small, identifiable set.](../artifacts/figures/figure-8-need-score-distribution.png)
+
+![Figure 9 — Distance-decay curve for the accessibility catchment: share of population covered as a function of walkshed radius. The 800 m cutoff sits on the curve's shoulder and is the choice the upstream CASESTUDY defends.](../artifacts/figures/figure-9-distance-decay.png)
+
+![Figure 10 — Gap score vs. nearest-station distance at the tract level. Near-linear relationship in the out-of-catchment regime; flat inside the catchment where reliability dominates.](../artifacts/figures/figure-10-gap-vs-distance-scatter.png)
+
+![Figure 11 — Pearson correlation heatmap across the three demographic predictors (disability rate, senior rate, poverty rate) and the gap score. Disability × poverty *r* = .70 explains why the multivariate OLS drops disability below significance.](../artifacts/figures/figure-11-correlation-heatmap.png)
+
+![Figure 12 — Gap score vs. poverty rate at the tract level, with OLS fit overlay. *b* = 0.164, *t* = 4.99, *p* < .001 in the multivariate model.](../artifacts/figures/figure-12-gap-vs-poverty-scatter.png)
+
+![Figure 13 — Gap score vs. disability rate at the tract level. Disability is the weakest multivariate predictor (*t* = 0.21, *p* = .84) because of its *r* = .70 correlation with poverty.](../artifacts/figures/figure-13-gap-vs-disability-scatter.png)
+
+![Figure 14 — Bivariate choropleth of gap score vs. poverty rate. The high-gap × high-poverty corridors are the actionable targets the equity regression nominates.](../artifacts/figures/figure-14-gap-vs-poverty-map.png)
+
+![Figure 15 — Bivariate choropleth of gap score vs. disability rate. Useful for siting decisions that weight disability independently of poverty despite the correlation.](../artifacts/figures/figure-15-gap-vs-disability-map.png)
 
 **The cross-walk.** Notebook 03 emits an 18-row table mapping each
 upstream section to its `factor-factory` engine family and the
