@@ -1,5 +1,5 @@
 [project]
-name = "showcase-subway-accessibility"
+name = "case-study-subway-accessibility"
 
 [paths]
 notebooks = "notebooks"

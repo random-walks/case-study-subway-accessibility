@@ -1,0 +1,17 @@
+[project]
+name = "case-study-subway-accessibility"
+version = "1.0.0"
+description = "Thin portfolio wrapper over the subway-access NYC ADA-accessibility analysis (figures gallery + cross-walk + headline numbers)"
+requires-python = ">=3.12"
+dependencies = [
+  "pandas>=2.2",
+  "pyarrow>=18",
+  "jellycell[server]>=1.4.0,<2",
+  "subway-access[factor-factory,tearsheets]>=0.5,<0.6",
+]
+
+[tool.uv]
+package = false
+
+[tool.jellycell]
+project = "case-study-subway-accessibility"
