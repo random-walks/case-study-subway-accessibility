@@ -1,15 +1,15 @@
 # 01 — Context and pointer
 
-> **Tearsheet** for [`notebooks/01_context_and_pointer.py`](../../notebooks/01_context_and_pointer.py) · [HTML report](../../site/01_context_and_pointer.html) · last run `2026-04-20T16:21:24+00:00`
+> **Tearsheet** for [`notebooks/01_context_and_pointer.py`](../../notebooks/01_context_and_pointer.py) · [HTML report](../../site/01_context_and_pointer.html) · last run `2026-07-15T20:39:31+00:00`
 
-This showcase is a **thin portfolio wrapper** around the canonical
-[`subway-access` v0.5.0 CASESTUDY](https://github.com/random-walks/subway-access/blob/main/docs/CASESTUDY.md).
+This case study is a **thin portfolio wrapper** around the canonical
+[`subway-access` v0.5.1 CASESTUDY](https://github.com/random-walks/subway-access/blob/main/examples/accessibility-change-over-time/CASESTUDY.md).
 The upstream library owns the live pipeline — fetching MTA Socrata
 endpoints, joining ACS 5-year estimates, computing 800 m catchments,
 fitting the OLS and Moran's *I* models, and emitting the 15 figures
 and the engine-audit appendix.
 
-What this package adds is a **blaise-website-specific lens**:
+What this repo adds is a **portfolio-specific lens**:
 
 1. A browsable gallery of the 15 committed figures (notebook 02).
 2. A cross-walk table mapping each CASESTUDY section to a
@@ -24,16 +24,16 @@ cloning `random-walks/subway-access` and running the upstream
 example. See `manuscripts/UPSTREAM_REFERENCE.md` for the exact
 commands.
 
-See `.claude/skills/jellycell-gotchas.md` — we inline imports in
-every cell (no `jc.setup`) and render figures via
-`IPython.display.Image` rather than `jc.figure(path)` (bug #11).
+Note: imports are inlined in every cell (no `jc.setup`), and figures
+are rendered as static images via `IPython.display.Image` so the
+gallery stays portable across notebook viewers.
 
-**Headline numbers mirrored from subway-access v0.5.0 CASESTUDY (April 2026 vintage).**
+**Headline numbers mirrored from subway-access v0.5.1 CASESTUDY (April 2026 vintage).**
 
 | field | value |
 | --- | --- |
 | `upstream_package` | subway-access |
-| `upstream_version` | 0.5.0 |
+| `upstream_version` | 0.5.1 |
 | `study_vintage` | April 2026 |
 | `n_stations_total` | `493` |
 | `n_stations_ada` | `157` |
@@ -62,8 +62,9 @@ _tags: tearsheet_
 
 - **Library**: [`random-walks/subway-access`](https://github.com/random-walks/subway-access) — typed
   Python toolkit for reproducible NYC subway accessibility analysis.
-- **CASESTUDY**: `docs/CASESTUDY.md` in the upstream repo — abstract, §1–§5,
-  Appendix D (factor-factory engine audit).
+- **CASESTUDY**: `examples/accessibility-change-over-time/CASESTUDY.md`
+  in the upstream repo — abstract, §1–§5, Appendix D (factor-factory
+  engine audit).
 - **Example pipeline**: `examples/accessibility-change-over-time/main.py`
   in the upstream repo. Running it produces the 15 figures committed here.
 - **Data provenance caveat**: 56 of 157 ADA station upgrade years use

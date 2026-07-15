@@ -6,13 +6,13 @@
 # %% [markdown]
 # # 03 — Cross-walk: upstream sections <-> factor-factory engines <-> portfolio topics
 #
-# The distinctive contribution of this showcase. For each numbered
-# section of the upstream `subway-access` v0.5.0 CASESTUDY, we record:
+# The distinctive contribution of this case study. For each numbered
+# section of the upstream `subway-access` v0.5.1 CASESTUDY, we record:
 #
 # 1. Which `factor-factory` engine family implements (or could
 #    implement) the same computation in the canonical framework.
-# 2. Which blaise-website portfolio topic the section illustrates —
-#    the lens through which other case studies reference this one.
+# 2. Which portfolio topic the section illustrates — the lens
+#    through which other case studies reference this one.
 #
 # The table lives in `artifacts/cross_walk.json` as structured data
 # and is re-emitted as a Markdown table via `jc.table` so it renders
@@ -27,13 +27,13 @@ import jellycell.api as jc
 #   ff_engine          — factor_factory.engines.<family>.<method>
 #                        ("-" when the section is descriptive rather
 #                        than estimator-backed)
-#   portfolio_topic    — blaise-website portfolio lens
+#   portfolio_topic    — portfolio lens
 ROWS = [
     {
         "upstream_section": "§3.1 Data sources",
         "topic": "MTA stations + ACS tracts + elevator uptime + tract geometries",
         "ff_engine": "-",
-        "portfolio_topic": "Data provenance sidecars (see .claude/skills/data-provenance.md)",
+        "portfolio_topic": "Data provenance sidecars",
     },
     {
         "upstream_section": "§3.2 Accessibility model",
@@ -111,7 +111,7 @@ ROWS = [
         "upstream_section": "§4.6 Model diagnostics",
         "topic": "Jarque-Bera, skewness, kurtosis, distance-decay plots",
         "ff_engine": "-",
-        "portfolio_topic": "Aggressive diagnostics (see .claude/skills/diagnostics-aggressive.md)",
+        "portfolio_topic": "Aggressive diagnostics",
     },
     {
         "upstream_section": "§4.7 OLS equity regression",
@@ -129,7 +129,7 @@ ROWS = [
         "upstream_section": "§5 Discussion",
         "topic": "Limitations, policy implications, future research",
         "ff_engine": "-",
-        "portfolio_topic": "Honest limitations (see .claude/skills/paper-cadence.md §5.3)",
+        "portfolio_topic": "Honest limitations",
     },
     {
         "upstream_section": "Appendix D — engine audit",
@@ -144,8 +144,8 @@ jc.save(
     "artifacts/cross_walk.json",
     caption=(
         f"Cross-walk: {len(ROWS)} rows mapping subway-access CASESTUDY "
-        "sections to factor-factory engine families and blaise-website "
-        "portfolio topics."
+        "sections to factor-factory engine families and portfolio "
+        "topics."
     ),
     tags=["tearsheet"],
 )
@@ -274,9 +274,8 @@ jc.table(
     df,
     name="cross_walk_table",
     caption=(
-        "Cross-walk from subway-access v0.5.0 CASESTUDY sections to "
-        "factor-factory engine families and blaise-website portfolio "
-        "topics."
+        "Cross-walk from subway-access v0.5.1 CASESTUDY sections to "
+        "factor-factory engine families and portfolio topics."
     ),
     notes=(
         "Dash (-) in ff_engine marks descriptive sections not backed "
@@ -289,14 +288,15 @@ jc.table(
 # ## How to read this table
 #
 # - **`upstream_section`** is the authoritative pointer. For the actual
-#   numbers, equations, and prose, open `docs/CASESTUDY.md` in the
+#   numbers, equations, and prose, open
+#   `examples/accessibility-change-over-time/CASESTUDY.md` in the
 #   `random-walks/subway-access` repo.
 # - **`ff_engine`** indicates the `factor-factory` 1.0 engine family
 #   that owns the canonical implementation within our ecosystem. When
 #   the upstream analysis uses a hand-rolled function, this column
 #   names the engine that would replace it in an engine-audit
 #   Appendix.
-# - **`portfolio_topic`** is the lens through which other blaise-website
-#   showcases (rat-containerization, resolution-equity) reference this
-#   one. It lets a reader browsing the portfolio jump between case
-#   studies that share a methodological concern.
+# - **`portfolio_topic`** is the lens through which other published
+#   case studies (rat-containerization, resolution-equity) reference
+#   this one. It lets a reader browsing the portfolio jump between
+#   case studies that share a methodological concern.

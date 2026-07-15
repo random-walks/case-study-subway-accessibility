@@ -1,6 +1,6 @@
 {
   "upstream_package": "subway-access",
-  "upstream_version": "0.5.0",
+  "upstream_version": "0.5.1",
   "study_vintage": "April 2026",
   "n_stations_total": 493,
   "n_stations_ada": 157,

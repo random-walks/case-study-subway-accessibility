@@ -5,7 +5,7 @@
       "upstream_section": "\u00a73.1 Data sources",
       "topic": "MTA stations + ACS tracts + elevator uptime + tract geometries",
       "ff_engine": "-",
-      "portfolio_topic": "Data provenance sidecars (see .claude/skills/data-provenance.md)"
+      "portfolio_topic": "Data provenance sidecars"
     },
     {
       "upstream_section": "\u00a73.2 Accessibility model",
@@ -83,7 +83,7 @@
       "upstream_section": "\u00a74.6 Model diagnostics",
       "topic": "Jarque-Bera, skewness, kurtosis, distance-decay plots",
       "ff_engine": "-",
-      "portfolio_topic": "Aggressive diagnostics (see .claude/skills/diagnostics-aggressive.md)"
+      "portfolio_topic": "Aggressive diagnostics"
     },
     {
       "upstream_section": "\u00a74.7 OLS equity regression",
@@ -101,7 +101,7 @@
       "upstream_section": "\u00a75 Discussion",
       "topic": "Limitations, policy implications, future research",
       "ff_engine": "-",
-      "portfolio_topic": "Honest limitations (see .claude/skills/paper-cadence.md \u00a75.3)"
+      "portfolio_topic": "Honest limitations"
     },
     {
       "upstream_section": "Appendix D \u2014 engine audit",

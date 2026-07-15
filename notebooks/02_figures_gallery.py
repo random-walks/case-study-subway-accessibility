@@ -7,10 +7,10 @@
 # # 02 — Figures gallery
 #
 # The 15 figures from the upstream CASESTUDY, inlined via
-# `IPython.display.Image` (workaround for jellycell #11 — see
-# `.claude/skills/jellycell-gotchas.md`). Figures are LFS-tracked under
-# `artifacts/figures/` and migrated from `LEGACY-python-showcase/`
-# via `git mv` to preserve history.
+# `IPython.display.Image` as static images so the gallery renders
+# portably in any notebook viewer. The PNGs are committed as regular
+# git binaries under `artifacts/figures/`, with their full commit
+# history carried in this repository.
 #
 # Captions summarize what each figure shows; the full methodological
 # context lives in §2–§4 of the upstream CASESTUDY.
@@ -124,7 +124,6 @@ Image("artifacts/figures/figure-15-gap-vs-disability-map.png")
 # ## Figure inventory summary
 #
 # All 15 figures from the April 2026 upstream vintage are inlined
-# above. The committed PNGs are LFS-tracked via the repo-root
-# `.gitattributes`, so regenerating deterministically produces the
-# same LFS pointers. See notebook 03 for the engine cross-walk that
-# ties each figure to a `factor-factory` engine family.
+# above, committed as regular git binaries so a checkout renders the
+# gallery with no extra tooling. See notebook 03 for the engine
+# cross-walk that ties each figure to a `factor-factory` engine family.

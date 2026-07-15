@@ -1,8 +1,8 @@
 # Upstream reference
 
-This showcase mirrors the April 2026 vintage of the NYC subway
+This repo mirrors the April 2026 vintage of the NYC subway
 accessibility analysis published as the canonical CASESTUDY of the
-[`subway-access`](https://github.com/random-walks/subway-access) v0.5.0
+[`subway-access`](https://github.com/random-walks/subway-access) v0.5.1
 library. The 15 figures and the headline numbers inlined in this
 package are pre-rendered snapshots — they are not recomputed by the
 notebooks here.
@@ -11,13 +11,14 @@ The runnable pipeline that produces them lives upstream:
 
 - **Library**: [`random-walks/subway-access`](https://github.com/random-walks/subway-access)
   — typed Python toolkit for reproducible NYC subway accessibility
-  analysis. Version 0.5.0 ships the factor-factory engine-audit
-  Appendix D and the jellycell reporting bridge.
+  analysis. Version 0.5.1 (the pinned release) ships the factor-factory
+  engine-audit Appendix D and the jellycell reporting bridge.
 - **Example pipeline**: [`examples/accessibility-change-over-time/`](https://github.com/random-walks/subway-access/tree/main/examples/accessibility-change-over-time)
   — `main.py` is the entry point that fetches the MTA + ACS data,
   runs the factor-factory / DiD / spatial pipeline, and emits the
   figures and tables embedded here.
-- **Upstream CASESTUDY**: `docs/CASESTUDY.md` in the upstream repo.
+- **Upstream CASESTUDY**: `examples/accessibility-change-over-time/CASESTUDY.md`
+  in the upstream repo.
 - **FOIL request template**: see §3.5 of the upstream CASESTUDY — the
   request chases the 56 missing station upgrade dates from the MTA
   Key Station Program.
@@ -43,9 +44,13 @@ under the upstream example directory. To refresh this wrapper:
    `notebooks/01_context_and_pointer.py` to reflect the new vintage.
 3. If any numerical result drifts enough to invalidate the cross-walk
    row, update `notebooks/03_cross_walk.py` accordingly.
-4. Re-run `pnpm showcase:run showcase-subway-accessibility/notebooks/*.py`
-   and `pnpm showcase:render showcase-subway-accessibility` to refresh
-   the rendered HTML catalogue.
+4. Re-run the notebooks from this repo's root to refresh the
+   artifacts and tearsheets:
+
+   ```bash
+   uv sync
+   for nb in notebooks/[0-9]*.py; do uv run jellycell run "$nb"; done
+   ```
 
 ## FOIL request gap (data provenance caveat)
 
@@ -84,8 +89,8 @@ Sincerely,
 
 ## Version pinning
 
-This wrapper depends on `subway-access >= 0.5, < 0.6` via the
-`packages/python-showcase/pyproject.toml` `[subway-access]` optional
-extra. The pin intentionally excludes 0.6 because the CASESTUDY
+This wrapper depends on `subway-access >= 0.5, < 0.6` via this
+repository's `pyproject.toml`. The pin intentionally excludes 0.6
+because the CASESTUDY
 numbers and figure set are expected to refresh at that minor version.
 When 0.6 ships, bump the pin and re-run the regeneration recipe above.

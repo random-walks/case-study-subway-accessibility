@@ -6,14 +6,14 @@
 # %% [markdown]
 # # 01 — Context and pointer
 #
-# This showcase is a **thin portfolio wrapper** around the canonical
-# [`subway-access` v0.5.0 CASESTUDY](https://github.com/random-walks/subway-access/blob/main/docs/CASESTUDY.md).
+# This case study is a **thin portfolio wrapper** around the canonical
+# [`subway-access` v0.5.1 CASESTUDY](https://github.com/random-walks/subway-access/blob/main/examples/accessibility-change-over-time/CASESTUDY.md).
 # The upstream library owns the live pipeline — fetching MTA Socrata
 # endpoints, joining ACS 5-year estimates, computing 800 m catchments,
 # fitting the OLS and Moran's *I* models, and emitting the 15 figures
 # and the engine-audit appendix.
 #
-# What this package adds is a **blaise-website-specific lens**:
+# What this repo adds is a **portfolio-specific lens**:
 #
 # 1. A browsable gallery of the 15 committed figures (notebook 02).
 # 2. A cross-walk table mapping each CASESTUDY section to a
@@ -28,17 +28,17 @@
 # example. See `manuscripts/UPSTREAM_REFERENCE.md` for the exact
 # commands.
 #
-# See `.claude/skills/jellycell-gotchas.md` — we inline imports in
-# every cell (no `jc.setup`) and render figures via
-# `IPython.display.Image` rather than `jc.figure(path)` (bug #11).
+# Note: imports are inlined in every cell (no `jc.setup`), and figures
+# are rendered as static images via `IPython.display.Image` so the
+# gallery stays portable across notebook viewers.
 
 # %% tags=["jc.load", "name=headline_numbers"]
 import jellycell.api as jc
 import subway_access
 
 # The upstream package ships with the CASESTUDY and engine-audit
-# appendix. We pin to >=0.5,<0.6 in packages/python-showcase/pyproject.toml
-# so these numbers stay locked to the upstream April 2026 vintage.
+# appendix. We pin to >=0.5,<0.6 in pyproject.toml so these numbers
+# stay locked to the upstream April 2026 vintage.
 headline = {
     "upstream_package": "subway-access",
     "upstream_version": subway_access.__version__,
@@ -81,8 +81,9 @@ jc.save(
 #
 # - **Library**: [`random-walks/subway-access`](https://github.com/random-walks/subway-access) — typed
 #   Python toolkit for reproducible NYC subway accessibility analysis.
-# - **CASESTUDY**: `docs/CASESTUDY.md` in the upstream repo — abstract, §1–§5,
-#   Appendix D (factor-factory engine audit).
+# - **CASESTUDY**: `examples/accessibility-change-over-time/CASESTUDY.md`
+#   in the upstream repo — abstract, §1–§5, Appendix D (factor-factory
+#   engine audit).
 # - **Example pipeline**: `examples/accessibility-change-over-time/main.py`
 #   in the upstream repo. Running it produces the 15 figures committed here.
 # - **Data provenance caveat**: 56 of 157 ADA station upgrade years use
