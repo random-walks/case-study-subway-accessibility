@@ -1,9 +1,0 @@
-{
-  "ada_stations_total": 157,
-  "below_95pct_uptime": 49,
-  "below_95pct_pct": 31.2,
-  "manhattan_coverage_nominal_pct": 77,
-  "manhattan_coverage_effective_pct": 71,
-  "reliability_drop_pp": 6,
-  "observation_window": "2025-05 to 2026-04"
-}
