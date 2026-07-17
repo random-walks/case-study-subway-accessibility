@@ -32,6 +32,8 @@ the headline numbers as JSON.
 post at https://blaiseoss.com/posts/subway-accessibility-gaps (slug is
 historical — do not change it). To publish: land changes here, then run
 `./scripts/sync-case-study.sh subway` from the workspace root (two
-cross-referenced commits). Plain-APA citations only; no hard-wrapped
-hyphenated words; `artifacts/` and tearsheets are regenerated — never
-hand-edit.
+cross-referenced commits). The live post NEVER updates on its own —
+until the sync runs, blaiseoss.com serves the previous revision
+(`sync-case-study.sh --check` reports drift). Plain-APA citations only;
+no hard-wrapped hyphenated words; `artifacts/` and tearsheets are
+regenerated — never hand-edit.
