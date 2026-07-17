@@ -1,157 +1,108 @@
 ---
 name: committed-tearsheets
-description: Stable template_overrides pattern so committed tearsheets regenerate byte-identically. Apply when setting up the manuscripts/ dir or reviewing why `jellycell render` produces git-noisy diffs.
+description: How this wrapper's committed tearsheets and pinned JSON artifacts regenerate cleanly. Apply when setting up the manuscripts/ dir or reviewing why a notebook re-run produces git-noisy diffs.
 ---
 
-# Committed tearsheets, byte-identical regen
+# Committed tearsheets, clean regen
 
-This case study ships the following **committed** files (repo root):
+This case study is a **thin portfolio wrapper** over the upstream
+`subway-access` analysis. It computes no DiD and ships **no** `FINDINGS.md`.
+Its committed outputs are three per-notebook tearsheets plus a small set of
+pinned JSON artifacts and mirrored figures (repo root):
 
 ```
 manuscripts/
-├── FINDINGS.md              ← auto-generated, committed
 ├── tearsheets/
-│   ├── 01_load.md           ← auto-generated per-notebook, committed
-│   ├── 02_balance.md
-│   └── …
-└── MANUSCRIPT.md            ← hand-authored paper, committed
+│   ├── 01_context_and_pointer.md  ← one per notebook, exported, committed
+│   ├── 02_figures_gallery.md
+│   └── 03_cross_walk.md
+├── MANUSCRIPT.md                  ← hand-authored paper, committed
+└── UPSTREAM_REFERENCE.md          ← hand-authored pointer to the canonical study, committed
 artifacts/
-├── *.json                    ← engine results, committed
-├── *.parquet                 ← data, LFS-tracked
-└── figures/*.png             ← plots, LFS-tracked
+├── headline_numbers.json          ← pinned headline dict (hard-coded in notebook 01), committed (plain git)
+├── cross_walk.json                ← engine cross-walk (hard-coded in notebook 03), committed (plain git)
+├── cross_walk_table.parquet       ← the cross-walk as a table, committed (plain git)
+└── figures/*.png                  ← figures mirrored from an upstream clone, committed (plain git)
 ```
 
-## The stable-override pattern
+## The pinned-artifact pattern
 
-**Important**: jellycell 1.3.5 exposes `jc.save`, `jc.load`, `jc.table`,
-`jc.figure` — there is NO `jellycell.tearsheets.findings()` Python function.
-Per-notebook tearsheet rendering happens via the `jellycell export tearsheet`
-CLI (invoked by `uv run jellycell render`).
+**Important**: jellycell ≥ 1.4.0 (see `pyproject.toml`) ships a
+`jellycell.tearsheets` Python API — `jt.findings()`, `jt.methodology()`,
+`jt.audit()` (see `jellycell-gotchas.md` §5). This wrapper does not emit a
+`FINDINGS.md`, so it doesn't call `jt.findings()`; a study that *does*
+synthesize findings should prefer that API. There is **no** `_helpers`
+module in this repo.
 
-For the committed `manuscripts/FINDINGS.md` (summary across the whole
-study), use `_helpers.reporting.emit_findings_markdown()`:
-
-```python
-from _helpers.reporting import emit_findings_markdown
-
-emit_findings_markdown(
-    project="case-study-subway-accessibility",
-    results={
-        "twfe": {"att": -15.29, "se": 2.35, "ci_95": [-19.90, -10.69], "p": "<.001"},
-        "cs":   {"att": -12.20, "se": 1.88, "ci_95": [-15.89,  -8.51], "p": "<.001"},
-        "sa":   {"att": -12.20, "se": 1.88, "ci_95": [-15.89,  -8.51], "p": "<.001"},
-        "bjs":  {"att": -15.29, "se": 2.35, "ci_95": [-19.90, -10.69], "p": "<.001"},
-    },
-    out_path="manuscripts/FINDINGS.md",
-    # Pinned stable invariants — bump only per release, never per run:
-    author="Blaise Albis-Burdige",
-    author_url="https://blaiseab.com",
-    month_year="April 2026",
-    version="2.0.0",
-    summary="Four-estimator DiD on 2020-2024 nyc311 Rodent panel. Pre-trends rejected; headline framed as upper bound.",
-)
-```
-
-**Rule**: every field that would be nondeterministic → pinned to a stable literal. The result is a `FINDINGS.md` whose git diff between runs is empty unless the underlying `results` numbers changed.
+Because there is no recomputation here, byte-stability is structural: the
+headline numbers are a **hard-coded dict** in `notebooks/01_context_and_pointer.py`
+(persisted to `artifacts/headline_numbers.json`) and the engine cross-walk
+is hard-coded in `notebooks/03_cross_walk.py` (persisted to
+`artifacts/cross_walk.json` + `cross_walk_table.parquet`). A bare re-run
+recomputes neither — it just re-serializes the pinned values, so the JSON
+diff is empty unless you edited the dict. To bump the upstream, follow the
+steps in `CLAUDE.md` (raise the `subway-access` pin, re-copy the figures
+from an upstream clone, hand-update the headline / cross-walk dicts, then
+re-run).
 
 Per-notebook tearsheets (`manuscripts/tearsheets/*.md`) are exported via
-the CLI, which is byte-stable by construction (no timestamps in the template):
+the CLI:
 
 ```bash
-uv run jellycell export tearsheet notebooks/03_main_effects.py \
-    --output manuscripts/tearsheets/03_main_effects.md
+uv run jellycell export tearsheet notebooks/03_cross_walk.py \
+    --output manuscripts/tearsheets/03_cross_walk.md
 ```
 
-## Canonical overrides dict
+`jellycell export tearsheet` is its own command — `jellycell render` builds
+the HTML catalogue under `site/` and does **not** rewrite the committed
+markdown. (Each tearsheet carries a `last run` timestamp line, so that one
+line is expected to move when you re-export.)
 
-```python
-STABLE_OVERRIDES = {
-    "project": "case-study-subway-accessibility",
-    "generated_at": "stable",
-    "hostname": "showcase-runner",  # historical value, intentional — baked into committed tearsheets; changing it dirties every regen
-    "author": "Blaise Albis-Burdige",
-    "author_url": "https://blaiseab.com",
-    "month_year": "April 2026",   # bump per release, not per run
-    "version": "2.0.0",
-}
-```
+## Regen check
 
-Keep one `STABLE_OVERRIDES` constant at the top of
-`manuscripts/_render_all.py` or `06_synthesis.py`.
-
-## Byte-identical regen check
-
-Part of `uv run jellycell lint` should be:
+Re-run the notebooks (not `jellycell render`, which only rebuilds `site/`)
+and confirm the pinned JSON artifacts are unchanged:
 
 ```bash
-cp manuscripts/FINDINGS.md /tmp/before.md
-uv run jellycell render
-diff -u /tmp/before.md manuscripts/FINDINGS.md
-# empty diff expected
+cp artifacts/headline_numbers.json /tmp/before.json
+uv run jellycell run notebooks/01_context_and_pointer.py
+diff -u /tmp/before.json artifacts/headline_numbers.json
+# empty diff expected (the dict is hard-coded)
 ```
 
-If the diff isn't empty, find the non-stable override and pin it. Common
-culprits: `datetime.now()`, `socket.gethostname()`, `uuid.uuid4()`,
-`random.seed(None)`, floating-point last-digit drift from `numpy`
-(set `np.random.seed(42)` at the top of every notebook).
+If the diff isn't empty and you didn't touch the dict, look for a
+nondeterministic field that slipped into the notebook: `datetime.now()`,
+`socket.gethostname()`, `uuid.uuid4()`.
 
-## Floating-point determinism
+## Committed binaries — separate concern
 
-Stable overrides aren't enough — the *underlying numbers* also need to be
-deterministic. Seed every random number generator at the top of every
-notebook:
-
-```python
-import numpy as np
-import random
-
-np.random.seed(42)
-random.seed(42)
-```
-
-For bootstrap / permutation tests:
-
-```python
-from factor_factory.engines.diagnostics import bootstrap_ci
-
-ci = bootstrap_ci(panel, statistic=lambda p: p.mean(), n_boot=1000, seed=42)
-```
-
-For parallel execution (some engines use `joblib`):
-
-```python
-result = did_estimate(panel, ..., n_jobs=1)  # serialized = reproducible
-```
-
-## LFS-tracked binaries — separate concern
-
-Figures, parquet, feather, geojson are LFS-tracked (see `.gitattributes`).
-LFS hashes the full file, so committing a figure that rendered
-deterministically produces the same LFS pointer. Seed your plots:
-
-```python
-import matplotlib.pyplot as plt
-plt.rcParams["svg.hashsalt"] = "showcase"   # stable SVG IDs (historical salt value, intentional — keep as-is)
-# or for PNG: matplotlib is already deterministic if data + style are fixed
-```
+Figures and parquet are committed as **plain git blobs** — this repo uses
+**no** Git LFS (see `.gitattributes`: the binary formats carry
+`!text !filter !merge !diff` only to stop git mangling them, and the header
+notes they are "left over from the LFS export"). Keep each committed
+artifact under the `max_committed_size_mb = 50` cap in `jellycell.toml`.
+The figures are copied verbatim from an upstream `subway-access` clone, so
+the committed blob is byte-identical to the upstream render — don't
+re-render them locally.
 
 ## Tearsheets ≠ the paper
 
-- `FINDINGS.md` and `tearsheets/*.md` = auto-generated, byte-identical, committed.
+- `tearsheets/*.md` = auto-generated per notebook, committed.
 - `MANUSCRIPT.md` = hand-authored paper prose (see `paper-cadence` skill), never templated.
-- `AUDIT.md` = pragmatic self-critique, hand-authored, bullet-list voice.
+- `UPSTREAM_REFERENCE.md` = hand-authored pointer to the canonical study.
 
-Do not hand-edit `FINDINGS.md` — edits get overwritten on next render. Put
-prose in `MANUSCRIPT.md`; put table/number generation logic in the notebook
-that emits the `artifacts/*.json` the tearsheet reads.
+Do not hand-edit the tearsheets — edits get overwritten on next export. Put
+prose in `MANUSCRIPT.md`; change the headline / cross-walk numbers by
+editing the pinned dicts in `notebooks/01_context_and_pointer.py` and
+`notebooks/03_cross_walk.py`.
 
 ## When to invoke this skill
 
 - Setting up the `manuscripts/` dir.
-- Seeing git noise in `FINDINGS.md` after `uv run jellycell render` with no real changes.
-- Reviewing a PR that edits `FINDINGS.md` — reject hand edits, redirect to notebook changes.
+- Seeing git noise in a tearsheet or a pinned JSON artifact after re-running a notebook with no real changes.
+- Reviewing a PR that hand-edits a tearsheet — reject hand edits, redirect to notebook changes.
 
 ## When NOT to invoke this skill
 
-- `README.md` or `AUDIT.md` — both are hand-authored, no templating involved.
+- `README.md` or `UPSTREAM_REFERENCE.md` — both are hand-authored, no templating involved.
 - `MANUSCRIPT.md` — hand-authored, follows `paper-cadence` skill instead.

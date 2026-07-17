@@ -54,7 +54,7 @@ Image("artifacts/figures/figure-5-choropleth-coverage-status.png")
 from IPython.display import Image
 Image("artifacts/figures/figure-6-coverage-progression.png")
 # Figure 6: Coverage progression 2017-2023 across the 7-period panel.
-# 16.8% -> 35.9% of tracts, 1.62M -> 3.52M residents. See §4.4.
+# 17.4% -> 35.9% of tracts, 1.67M -> 3.52M residents. See §4.4.
 
 # %% tags=["jc.figure", "name=fig7_treatment_vs_control_balance", "tearsheet"]
 from IPython.display import Image
@@ -123,7 +123,8 @@ Image("artifacts/figures/figure-15-gap-vs-disability-map.png")
 # %% [markdown]
 # ## Figure inventory summary
 #
-# All 15 figures from the April 2026 upstream vintage are inlined
-# above, committed as regular git binaries so a checkout renders the
-# gallery with no extra tooling. See notebook 03 for the engine
+# All 15 figures from the April 2026 upstream vintage are inlined in
+# this notebook (rendered in the HTML report), committed as regular git
+# binaries so a checkout renders the gallery with no extra tooling. See
+# notebook 03 for the engine
 # cross-walk that ties each figure to a `factor-factory` engine family.

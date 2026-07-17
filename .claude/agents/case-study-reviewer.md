@@ -11,10 +11,12 @@ against the 10 invariants it requires. Be terse and specific.
 
 For this case study (all paths relative to the repo root):
 
-1. **Directory contract**: has `notebooks/`, `manuscripts/`, `artifacts/`, `data/`, `jellycell.toml`, `.gitignore` at the repo root. Flag if missing.
+1. **Directory contract**: has `notebooks/`, `manuscripts/`, `artifacts/`, `jellycell.toml`, `.gitignore` at the repo root. Flag if missing. This is a thin-wrapper study, so there is **no** `data/` dir — raw data lives upstream in `subway-access`; flag a `data/` dir here as unexpected.
 
-2. **Committed tearsheets regenerate byte-identically**: run
-   `cp manuscripts/FINDINGS.md /tmp/before.md && uv run jellycell render && diff -u /tmp/before.md manuscripts/FINDINGS.md`.
+2. **Committed tearsheets regenerate byte-identically**: this wrapper commits
+   no `FINDINGS.md`; the committed artifacts are the per-notebook tearsheets
+   under `manuscripts/tearsheets/*.md`. Run
+   `cp -r manuscripts/tearsheets /tmp/before && for nb in notebooks/*.py; do uv run jellycell run "$nb" && uv run jellycell export tearsheet "$nb"; done && diff -ru /tmp/before manuscripts/tearsheets`.
    Expected: empty diff. Any difference that isn't a timestamp is a failed invariant.
 
 3. **APA cadence in `MANUSCRIPT.md`** (if present): spot-check for
@@ -30,29 +32,39 @@ For this case study (all paths relative to the repo root):
    numbers in the main text. Directional agreement = pass; silent
    disagreement = fail.
 
-5. **Diagnostics coverage**: per `.claude/skills/diagnostics-aggressive.md`,
-   every regression coefficient reports β, SE, 95% CI, *t*/*F*, df, *p*,
-   effect size. Spot-check 3 coefficients. Count violations.
+5. **Diagnostics coverage** (N/A for this wrapper): the full
+   coefficient-reporting standard (β, SE, 95% CI, *t*/*F*, df, *p*, effect
+   size) is enforced **upstream** in the `subway-access` CASESTUDY — this
+   wrapper runs no primary regressions of its own. If `MANUSCRIPT.md` quotes
+   a headline coefficient, verify it matches `artifacts/headline_numbers.json`
+   and cites the upstream section; otherwise mark N/A.
 
 6. **Multiple-comparison correction**: if `notebooks/` contains ≥ 3
    simultaneous hypothesis tests, search for `fdr_bh` or `bonferroni`.
    If absent, flag.
 
-7. **Robustness checks**: at least one of {alternative estimator, sample
-   restriction, placebo, functional form} per headline claim. Check
-   `notebooks/05_robustness*.py` or equivalent.
+7. **Robustness checks** (N/A as a local-notebook check): robustness
+   {alternative estimator, sample restriction, placebo, functional form}
+   lives upstream in the `subway-access` CASESTUDY; this wrapper does not
+   re-run it. Instead confirm `MANUSCRIPT.md` points to the upstream
+   robustness rather than silently omitting it. There is no
+   `notebooks/05_robustness*.py` here (the notebooks are 01–03 only).
 
-8. **Data provenance**: every file in `data/` (not `data/cache/`) has a
-   `.meta.json` sidecar. Run the check script if present.
+8. **Data provenance** (N/A as a `data/*.meta.json` check): there is no
+   `data/` dir in this wrapper. Provenance for the mirrored `artifacts/`
+   (figures, parquet, JSON) is documented in
+   `manuscripts/UPSTREAM_REFERENCE.md` — see the `data-provenance` skill.
 
 9. **jellycell gotchas**: no `# %% tags=["jc.setup"]` cells. Imports are
    inline in every notebook cell that uses them. See
    `.claude/skills/jellycell-gotchas.md`.
 
-10. **Upstream-first**: engines come from `factor_factory.engines.*` or
-    `nyc311.pipeline.as_factor_factory_estimate(...)`. Hand-rolled
-    `scipy.stats` / `statsmodels.api` calls are only acceptable for
-    quick descriptive stats, not for headline causal/inferential claims.
+10. **Upstream-first**: this wrapper runs no engines locally. Headline
+    numbers must trace to the upstream `subway-access` package and the
+    committed `artifacts/cross_walk.json` / `artifacts/headline_numbers.json`,
+    never be recomputed with hand-rolled `scipy.stats` / `statsmodels.api`.
+    Cross-walk engine references must name `factor_factory.engines.*`
+    families (the upstream owns the implementation).
 
 ## Output format
 
@@ -65,8 +77,9 @@ Fail:   [2, 4, 6, 7]
 Partial:[…]
 
 ### 2. Tearsheet drift
-manuscripts/FINDINGS.md diffs on lines 42-48. Numeric shift from X to Y
-suggests stale artifact. Regenerate with `uv run jellycell render`.
+manuscripts/tearsheets/03_cross_walk.md diffs on lines 42-48. Numeric shift
+from X to Y suggests a stale artifact. Regenerate with
+`uv run jellycell run notebooks/03_cross_walk.py && uv run jellycell export tearsheet notebooks/03_cross_walk.py`.
 
 ### 4. Engine-audit appendix missing
 MANUSCRIPT.md has §§ 1-5 but no Appendix D engine cross-check.

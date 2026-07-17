@@ -18,8 +18,13 @@ the headline numbers as JSON.
 - Stack: Python 3.12, uv (never pip), jellycell, subway-access (pinned).
 - Run: `uv sync`, then `uv run jellycell run notebooks/<nb>.py` in order.
 - Bumping the upstream: raise the `subway-access` pin in pyproject.toml,
-  re-run the notebooks (refreshes figures + headline_numbers.json +
-  cross_walk.json), update version mentions in the manuscript.
+  regenerate the figures from an upstream clone and copy them into
+  `artifacts/figures/`, hand-update the headline dict in notebook 01
+  (and notebook 03 if a cross-walk row drifts), then re-run the
+  notebooks to refresh the JSON artifacts + tearsheets, and update
+  version mentions in the manuscript. The notebooks inline pre-rendered
+  figures and hard-coded headline numbers — a bare re-run recomputes
+  neither. See `manuscripts/UPSTREAM_REFERENCE.md`.
 
 ## Publishing contract
 

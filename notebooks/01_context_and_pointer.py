@@ -23,7 +23,7 @@
 #    source of truth (`manuscripts/MANUSCRIPT.md`).
 #
 # **We do not re-run the upstream pipeline here.** The 15 figures are
-# pre-rendered snapshots tracked via Git LFS; regenerating requires
+# pre-rendered snapshots committed as regular git binaries; regenerating requires
 # cloning `random-walks/subway-access` and running the upstream
 # example. See `manuscripts/UPSTREAM_REFERENCE.md` for the exact
 # commands.
