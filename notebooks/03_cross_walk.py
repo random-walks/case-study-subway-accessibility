@@ -133,8 +133,8 @@ ROWS = [
     },
     {
         "upstream_section": "Appendix D — engine audit",
-        "topic": "factor-factory engine cross-check of primary results",
-        "ff_engine": "factor_factory.engines.{panel_reg,spatial,did}",
+        "topic": "factor-factory engine cross-check of primary results (TWFE/SA DiD, augmented SCM, RDD, Moran's I)",
+        "ff_engine": "factor_factory.engines.{did,scm,rdd,spatial}",
         "portfolio_topic": "Engine-audit-as-appendix pattern (directional agreement as check)",
     },
 ]
@@ -154,119 +154,11 @@ jc.save(
 import jellycell.api as jc
 import pandas as pd
 
-# Rehydrate from JSON to decouple from cell order (jc.load by name
-# would work too; reading via in-memory list keeps the notebook
-# runnable cell-by-cell).
-rows = [
-    {
-        "upstream_section": "§3.1 Data sources",
-        "topic": "MTA stations + ACS tracts + elevator uptime + tract geometries",
-        "ff_engine": "-",
-        "portfolio_topic": "Data provenance sidecars",
-    },
-    {
-        "upstream_section": "§3.2 Accessibility model",
-        "topic": "800 m Euclidean catchment on tract centroids",
-        "ff_engine": "nyc_geo_toolkit.catchment",
-        "portfolio_topic": "Walking-distance proxies; network-distance upgrade",
-    },
-    {
-        "upstream_section": "§3.3 Need and gap scores",
-        "topic": "Equal-weight composite of disability, senior, poverty",
-        "ff_engine": "factor_factory.engines.inequality",
-        "portfolio_topic": "Composite need indices",
-    },
-    {
-        "upstream_section": "§3.4 Reliability-weighted coverage",
-        "topic": "Uptime-discounted nominal coverage",
-        "ff_engine": "factor_factory.tidy.Panel",
-        "portfolio_topic": "De jure vs. de facto service delivery",
-    },
-    {
-        "upstream_section": "§3.5 DiD specification",
-        "topic": "Twoway FE panel (tract + period)",
-        "ff_engine": "factor_factory.engines.did.twfe",
-        "portfolio_topic": "Staggered rollout treatment effects",
-    },
-    {
-        "upstream_section": "§3.5 DiD — heterogeneity-robust",
-        "topic": "CS / SA / BJS estimators",
-        "ff_engine": "factor_factory.engines.did.{cs,sa,bjs}",
-        "portfolio_topic": "Cross-estimator agreement as ID check",
-    },
-    {
-        "upstream_section": "§3.5 SAR panel",
-        "topic": "Spatial autoregressive DiD extension",
-        "ff_engine": "factor_factory.engines.spatial.spatial_lag",
-        "portfolio_topic": "Spatial spillovers; SUTVA",
-    },
-    {
-        "upstream_section": "§3.6 Weights matrix",
-        "topic": "Row-standardized 2 km distance weights",
-        "ff_engine": "factor_factory.engines.spatial._base",
-        "portfolio_topic": "Spatial weights construction + sensitivity",
-    },
-    {
-        "upstream_section": "§4.1 System-wide coverage",
-        "topic": "Descriptive coverage counts",
-        "ff_engine": "-",
-        "portfolio_topic": "Headline-number communication",
-    },
-    {
-        "upstream_section": "§4.2 Borough disparities",
-        "topic": "Stratified coverage + distance by borough",
-        "ff_engine": "factor_factory.engines.inequality.theil",
-        "portfolio_topic": "Between- vs. within-group inequality",
-    },
-    {
-        "upstream_section": "§4.3 Reliability analysis",
-        "topic": "Station uptime ranking; fragile-station surfacing",
-        "ff_engine": "factor_factory.engines.changepoint.ruptures_adapter",
-        "portfolio_topic": "Operational reliability as outcome",
-    },
-    {
-        "upstream_section": "§4.4 Temporal progression",
-        "topic": "Coverage share across 7 periods (2017-2023)",
-        "ff_engine": "factor_factory.engines.stl.sktime_stl",
-        "portfolio_topic": "Rollout curves + pre-trend inspection",
-    },
-    {
-        "upstream_section": "§4.5 Treatment-control balance",
-        "topic": "Welch's t-tests on pre-treatment covariates",
-        "ff_engine": "factor_factory.engines.did._base",
-        "portfolio_topic": "Parallel trends; no anticipation",
-    },
-    {
-        "upstream_section": "§4.6 Model diagnostics",
-        "topic": "JB, skewness, kurtosis; distance-decay plots",
-        "ff_engine": "-",
-        "portfolio_topic": "Aggressive diagnostics",
-    },
-    {
-        "upstream_section": "§4.7 OLS equity regression",
-        "topic": "Gap ~ disability + senior + poverty (HC1, VIF)",
-        "ff_engine": "factor_factory.engines.panel_reg.pyfixest_adapter",
-        "portfolio_topic": "Vertical equity quantified",
-    },
-    {
-        "upstream_section": "§4.8 Moran's I",
-        "topic": "Global spatial autocorrelation",
-        "ff_engine": "factor_factory.engines.spatial.morans_i",
-        "portfolio_topic": "Spatial autocorrelation as clustering evidence",
-    },
-    {
-        "upstream_section": "§5 Discussion",
-        "topic": "Limitations; policy; future research",
-        "ff_engine": "-",
-        "portfolio_topic": "Honest limitations",
-    },
-    {
-        "upstream_section": "Appendix D — engine audit",
-        "topic": "factor-factory cross-check of primary results",
-        "ff_engine": "factor_factory.engines.{panel_reg,spatial,did}",
-        "portfolio_topic": "Engine-audit-as-appendix pattern",
-    },
-]
+# Reuse the single source list from the cross_walk_rows cell above —
+# jellycell scripts execute top-to-bottom in one process, so ROWS is
+# already in scope. (A second hand-typed copy previously drifted from
+# this one; keeping one list is what "deps=cross_walk_rows" implies.)
+rows = ROWS
 df = pd.DataFrame(rows, columns=[
     "upstream_section", "topic", "ff_engine", "portfolio_topic",
 ])

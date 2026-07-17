@@ -105,8 +105,8 @@
     },
     {
       "upstream_section": "Appendix D \u2014 engine audit",
-      "topic": "factor-factory engine cross-check of primary results",
-      "ff_engine": "factor_factory.engines.{panel_reg,spatial,did}",
+      "topic": "factor-factory engine cross-check of primary results (TWFE/SA DiD, augmented SCM, RDD, Moran's I)",
+      "ff_engine": "factor_factory.engines.{did,scm,rdd,spatial}",
       "portfolio_topic": "Engine-audit-as-appendix pattern (directional agreement as check)"
     }
   ]

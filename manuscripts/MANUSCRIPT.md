@@ -18,9 +18,10 @@ the analysis into a single document with its own factor-factory engine-audit
 appendix. Here we do three things. First, we mirror the 15 published figures
 so they are browsable inside the portfolio catalogue without requiring the
 reader to clone the upstream repository. Second, we publish an 18-row
-cross-walk that maps each numbered section of the upstream CASESTUDY to the
-`factor-factory` engine family that owns the canonical implementation and to
-the portfolio topic other published case studies use to reference this one.
+cross-walk that maps each methods-and-results section of the upstream
+CASESTUDY (§3–§5, plus the engine-audit appendix) to the `factor-factory`
+engine family that owns the canonical implementation and to the portfolio
+topic other published case studies use to reference this one.
 Third, we record the headline numbers — 493 stations, 157 ADA-accessible
 (31.8%), 4,717,140 New Yorkers in gap tracts (55.4%), OLS $R^2 = .202$ with
 senior rate as the strongest predictor, Moran's $I = .23$ ($z = 40.87$,
@@ -100,35 +101,35 @@ the paragraph that defines what it shows.
 
 ### 3.1 Gallery
 
-![Figure 1 — ADA-accessible station count vs. total active station count by borough (April 2026 MTA vintage). Staten Island's 9% coverage vs. Manhattan's 77% coverage is the bracket the rest of the analysis unpacks.](../artifacts/figures/figure-1-coverage-by-borough.png)
+![Figure 1 — Tract-level ADA coverage rate by borough (800 m walk catchment, April 2026 MTA vintage). Staten Island's 9% coverage vs. Manhattan's 77% coverage is the bracket the rest of the analysis unpacks.](../artifacts/figures/figure-1-coverage-by-borough.png)
 
 ![Figure 2 — Resident population inside vs. outside the 800 m accessibility catchment, by borough. 4.72 M New Yorkers (55.4%) live in gap tracts; Queens carries the largest absolute gap (1.75 M residents).](../artifacts/figures/figure-2-gap-population.png)
 
 ![Figure 3 — Nominal ADA coverage vs. uptime-weighted "effective" coverage, by borough. Uptime-weighting pulls Manhattan from 77% down to 71% and documents the gap between capital compliance and functional access.](../artifacts/figures/figure-3-reliability-nominal-vs-effective.png)
 
-![Figure 4 — Choropleth of the composite gap score at the census-tract level. Gap score combines catchment distance and uptime-weighted reliability; southeastern Queens, central Brooklyn, and the northern Bronx dominate.](../artifacts/figures/figure-4-choropleth-gap-score.png)
+![Figure 4 — Choropleth of the composite gap score at the census-tract level. Gap score is the equal-weight composite of disability, senior, and poverty rates for uncovered tracts (zero for covered tracts); southeastern Queens, central Brooklyn, and the northern Bronx dominate.](../artifacts/figures/figure-4-choropleth-gap-score.png)
 
-![Figure 5 — Choropleth of binary coverage status (in-catchment vs. gap tract) at the census-tract level. Complements Figure 4 by separating geometry from reliability.](../artifacts/figures/figure-5-choropleth-coverage-status.png)
+![Figure 5 — Choropleth of binary coverage status (in-catchment vs. gap tract) at the census-tract level. Complements Figure 4 by isolating the binary coverage geometry from the need-weighted gap score.](../artifacts/figures/figure-5-choropleth-coverage-status.png)
 
-![Figure 6 — Cumulative ADA-accessible station count over the MTA Key Station Program timeline. The step pattern illustrates the hash-based fallback used for the 56-station subset lacking sourced upgrade years.](../artifacts/figures/figure-6-coverage-progression.png)
+![Figure 6 — Tract coverage rate progression across the 2017–2023 seven-period panel, rising from 17.4% to 35.9% of tracts. See §4 for the hash-based fallback used to date the 56 stations lacking sourced upgrade years.](../artifacts/figures/figure-6-coverage-progression.png)
 
 ![Figure 7 — Balance check on the treated vs. control tract pool used in the DiD supplement, showing the pre-period demographics that justify the upstream identification strategy.](../artifacts/figures/figure-7-treatment-vs-control-balance.png)
 
 ![Figure 8 — Distribution of the composite need score (disability rate + senior rate + poverty rate, equal weights) across all 2,317 tracts. Right-tailed: the tracts with the highest need are a small, identifiable set.](../artifacts/figures/figure-8-need-score-distribution.png)
 
-![Figure 9 — Distance-decay curve for the accessibility catchment: share of population covered as a function of walkshed radius. The 800 m cutoff sits on the curve's shoulder and is the choice the upstream CASESTUDY defends.](../artifacts/figures/figure-9-distance-decay.png)
+![Figure 9 — Coverage rate and tract count by distance-to-nearest-accessible-station bin. Coverage is total within 800 m and zero beyond it — the binary catchment rule the upstream CASESTUDY defends; the secondary-axis line shows tract counts per bin.](../artifacts/figures/figure-9-distance-decay.png)
 
-![Figure 10 — Gap score vs. nearest-station distance at the tract level. Near-linear relationship in the out-of-catchment regime; flat inside the catchment where reliability dominates.](../artifacts/figures/figure-10-gap-vs-distance-scatter.png)
+![Figure 10 — Gap score vs. nearest-station distance, gap tracts only (beyond the 800 m catchment), sized by population. Moderate positive association (Pearson *r* = .42, *p* < .001); high-population tracts appear at every distance range.](../artifacts/figures/figure-10-gap-vs-distance-scatter.png)
 
-![Figure 11 — Pearson correlation heatmap across the three demographic predictors (disability rate, senior rate, poverty rate) and the gap score. Disability × poverty *r* = .70 explains why the multivariate OLS drops disability below significance.](../artifacts/figures/figure-11-correlation-heatmap.png)
+![Figure 11 — Pearson correlation heatmap across the three demographic predictors (disability rate, senior rate, poverty rate), the composite need and gap scores, and distance to nearest accessible station. Disability × poverty *r* = .70 explains why the multivariate OLS drops disability below significance.](../artifacts/figures/figure-11-correlation-heatmap.png)
 
 ![Figure 12 — Gap score vs. poverty rate at the tract level, with OLS fit overlay. *b* = 0.164, *t* = 4.99, *p* < .001 in the multivariate model.](../artifacts/figures/figure-12-gap-vs-poverty-scatter.png)
 
 ![Figure 13 — Gap score vs. disability rate at the tract level. Disability is the weakest multivariate predictor (*t* = 0.21, *p* = .84) because of its *r* = .70 correlation with poverty.](../artifacts/figures/figure-13-gap-vs-disability-scatter.png)
 
-![Figure 14 — Bivariate choropleth of gap score vs. poverty rate. The high-gap × high-poverty corridors are the actionable targets the equity regression nominates.](../artifacts/figures/figure-14-gap-vs-poverty-map.png)
+![Figure 14 — Side-by-side choropleths of gap score and poverty rate. The high-gap × high-poverty corridors are the actionable targets the equity regression nominates.](../artifacts/figures/figure-14-gap-vs-poverty-map.png)
 
-![Figure 15 — Bivariate choropleth of gap score vs. disability rate. Useful for siting decisions that weight disability independently of poverty despite the correlation.](../artifacts/figures/figure-15-gap-vs-disability-map.png)
+![Figure 15 — Side-by-side choropleths of gap score and disability rate. Useful for siting decisions that weight disability independently of poverty despite the correlation.](../artifacts/figures/figure-15-gap-vs-disability-map.png)
 
 **The cross-walk.** Notebook 03 emits an 18-row table mapping each
 upstream section to its `factor-factory` engine family (Random Walks,
@@ -140,10 +141,11 @@ study to read next if they care about (say) spatial autocorrelation
 (`factor_factory.engines.spatial.morans_i`, upstream CASESTUDY §4.8) or
 vertical equity (`factor_factory.engines.panel_reg.pyfixest_adapter`,
 upstream CASESTUDY §4.7). Sections without a dedicated estimator
-(descriptive coverage, discussion, limitations) are marked with a dash
-in the engine column; the portfolio topic is still populated because the
-methodological choice — how to write an honest limitations section, how
-to communicate headline numbers — is itself a portfolio-level concern.
+(data sources, descriptive coverage, model diagnostics, discussion) are
+marked with a dash in the engine column; the portfolio topic is still
+populated because the methodological choice — how to write an honest
+limitations section, how to communicate headline numbers — is itself a
+portfolio-level concern.
 
 **Table 1. Cross-Walk From Upstream CASESTUDY Sections to factor-factory Engine Families and Portfolio Topics**
 
@@ -154,7 +156,7 @@ to communicate headline numbers — is itself a portfolio-level concern.
 | §3.3 Need and gap scores | `factor_factory.engines.inequality` (composite indices) | Composite need indices and sensitivity to weighting |
 | §3.4 Reliability-weighted coverage | `factor_factory.tidy.Panel` (reliability-weighted outcomes) | De jure vs. de facto service delivery |
 | §3.5 DiD specification | `factor_factory.engines.did.twfe` | Staggered rollout treatment effects |
-| §3.5 DiD — staggered adoption robustness | `factor_factory.engines.did.{callaway_santanna,sun_abraham,borusyak_jaravel_spiess}` | Cross-estimator agreement as identification check |
+| §3.5 DiD — staggered adoption robustness | `factor_factory.engines.did.{callaway_santanna,sun_abraham,borusyak_jaravel_spiess}` | Cross-estimator agreement as identification check (Sun-Abraham is upstream's Appendix D robustness check; Callaway-Sant'Anna and Borusyak-Jaravel-Spiess are this wrapper's proposed engine mapping, not upstream content) |
 | §3.5 SAR panel | `factor_factory.engines.spatial.spatial_lag` | Spatial spillovers and SUTVA violations |
 | §3.6 Spatial analysis (weights matrix) | `factor_factory.engines.spatial._base` (weights) | Spatial weights construction and sensitivity |
 | §4.1 System-wide coverage | — | Headline-number communication |
@@ -166,7 +168,7 @@ to communicate headline numbers — is itself a portfolio-level concern.
 | §4.7 OLS equity regression | `factor_factory.engines.panel_reg.pyfixest_adapter` | Vertical equity quantified |
 | §4.8 Moran's I | `factor_factory.engines.spatial.morans_i` | Spatial autocorrelation as clustering evidence |
 | §5 Discussion | — | Honest limitations |
-| Appendix D — engine audit | `factor_factory.engines.{panel_reg,spatial,did}` | Engine-audit-as-appendix pattern (directional agreement as check) |
+| Appendix D — engine audit | `factor_factory.engines.{did,scm,rdd,spatial}` | Engine-audit-as-appendix pattern (directional agreement as check) |
 
 *Note.* Section labels refer to the upstream CASESTUDY
 (`examples/accessibility-change-over-time/CASESTUDY.md` in
@@ -195,12 +197,13 @@ components is arbitrary. All of these are documented in §5.3 of the
 upstream CASESTUDY and should be read there rather than paraphrased here.
 
 This wrapper adds one new limitation: the cross-walk is a curation, not
-an engine-audit. A real audit would re-estimate every primary result
+an engine audit. A real audit would re-estimate every primary result
 using the named `factor-factory` engine and report the numerical
-discrepancy. Appendix D of the upstream CASESTUDY does that for the
-headline regression and the Moran's *I* test. Extending the audit across
-every row of the cross-walk is future work; it belongs upstream in the
-`subway-access` engine-audit appendix rather than here.
+discrepancy. Appendix D of the upstream CASESTUDY does that for five
+fits — TWFE and Sun-Abraham DiD, augmented SCM, RDD, and Moran's *I* —
+but not for the headline OLS equity regression. Extending the audit
+across every row of the cross-walk is future work; it belongs upstream
+in the `subway-access` engine-audit appendix rather than here.
 
 ## 5. What happens next
 
@@ -221,12 +224,12 @@ wrapper.
 
 ## References
 
-Albis-Burdige, B. (2026). *subway-access: Typed Python toolkit for NYC
-subway accessibility analysis* (Version 0.5.1) [Computer software].
-Random Walks. https://github.com/random-walks/subway-access
+Albis-Burdige, B. (2026). *subway-access: A Python toolkit for
+reproducible NYC subway accessibility analysis* (Version 0.5.1)
+[Computer software]. Random Walks. https://github.com/random-walks/subway-access
 
 Metropolitan Transportation Authority [MTA]. (2026). *MTA subway
-station catalog and elevator/escalator availability*. NYC Open Data /
+station catalog and elevator/escalator availability*. Open Data NY /
 Socrata. https://data.ny.gov
 
 Random Walks. (2026). *factor-factory: Protocol-based econometrics

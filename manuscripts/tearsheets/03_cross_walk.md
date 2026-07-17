@@ -1,6 +1,6 @@
 # 03 — Cross-walk: upstream sections <-> factor-factory engines <-> portfolio topics
 
-> **Tearsheet** for [`notebooks/03_cross_walk.py`](../../notebooks/03_cross_walk.py) · [HTML report](../../site/03_cross_walk.html) · last run `2026-07-15T20:39:34+00:00`
+> **Tearsheet** for [`notebooks/03_cross_walk.py`](../../notebooks/03_cross_walk.py) · [HTML report](../../site/03_cross_walk.html) · last run `2026-07-17T14:25:28+00:00`
 
 The distinctive contribution of this case study. For each numbered
 section of the upstream `subway-access` v0.5.1 CASESTUDY, we record:

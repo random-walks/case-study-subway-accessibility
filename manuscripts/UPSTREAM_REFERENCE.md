@@ -19,24 +19,32 @@ The runnable pipeline that produces them lives upstream:
   figures and tables embedded here.
 - **Upstream CASESTUDY**: `examples/accessibility-change-over-time/CASESTUDY.md`
   in the upstream repo.
-- **FOIL request template**: see §3.5 of the upstream CASESTUDY — the
-  request chases the 56 missing station upgrade dates from the MTA
-  Key Station Program.
+- **FOIL request gap**: see §3.5 of the upstream CASESTUDY for the
+  provenance discussion — the request chases the 56 missing station
+  upgrade dates from the MTA Key Station Program. A ready-to-send
+  template is in this file, under [FOIL request gap](#foil-request-gap-data-provenance-caveat) below.
 
 ## Regenerating against a later vintage
 
 To regenerate against fresh data (e.g., later MTA snapshots or the
-2024–2028 ACS vintage):
+2020–2024 ACS vintage):
 
 ```bash
 git clone https://github.com/random-walks/subway-access
 cd subway-access/examples/accessibility-change-over-time
-uv sync --extra factor-factory --extra tearsheets
+uv sync
 python main.py
 ```
 
-The output figures, tables, and `CASESTUDY.md` land in `reports/`
-under the upstream example directory. To refresh this wrapper:
+`uv sync` pulls in factor-factory and jellycell automatically — the
+example project depends on `subway-access[all]`, which bundles both
+(Python 3.12+ required for those components). The `factor-factory` and
+`tearsheets` extras belong to the root `subway-access` package, not
+this example project, so they can't be requested with `--extra` here.
+
+The output figures, tables, and the auto-generated report
+(`accessibility-change-report.md`) land in `reports/` under the
+upstream example directory. To refresh this wrapper:
 
 1. Replace `artifacts/figures/figure-*.png` with the regenerated
    figures (keep the filenames — notebook 02 inlines by exact path).
@@ -45,11 +53,20 @@ under the upstream example directory. To refresh this wrapper:
 3. If any numerical result drifts enough to invalidate the cross-walk
    row, update `notebooks/03_cross_walk.py` accordingly.
 4. Re-run the notebooks from this repo's root to refresh the
-   artifacts and tearsheets:
+   artifacts and the journal:
 
    ```bash
    uv sync
    for nb in notebooks/[0-9]*.py; do uv run jellycell run "$nb"; done
+   ```
+
+5. `jellycell run` does not touch the tearsheets — export them
+   separately (and optionally re-render the HTML catalogue under
+   `site/`):
+
+   ```bash
+   for nb in notebooks/[0-9]*.py; do uv run jellycell export tearsheet "$nb"; done
+   uv run jellycell render
    ```
 
 ## FOIL request gap (data provenance caveat)
